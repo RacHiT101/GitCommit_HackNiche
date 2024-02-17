@@ -3,22 +3,21 @@ import Chart from "react-apexcharts";
 
 const BarGraph = ({taskExpenses}) => {
   //   const mode = useSelector((state) => state.config.mode);
-  const categories = ["Flooring", "Painting", "Plumbing", "Wiring", "Furniture"];
+  const categories = taskExpenses.categories;
 
   // Fixed values for Expected Investment
-  const expectedInvestment = [660, 440, 550 , 570, 560];
+  const AvailableStocks = taskExpenses.AvailableStocks;
+  const UsedStock = taskExpenses.UsedStock;
+
 
   const series = [
     {
-      name: "Expected Investment",
-      data: expectedInvestment,
+      name: "Total Stock ",
+      data: AvailableStocks,
     },
     {
-      name: "Actual Invested",
-      data: categories.map((category) =>
-        taskExpenses[category.toLowerCase()]
-          .reduce((total, expense) => total + parseFloat(expense.amount), 0)
-      ),
+      name: "Used Stock",
+      data: UsedStock
     },
   ];
 
@@ -51,7 +50,7 @@ const BarGraph = ({taskExpenses}) => {
     },
     xaxis: {
       
-      categories: ["Flooring", "Painting", "Plumbing", "Wiring", "Furniture"],
+      categories: categories,
     },
     yaxis: {
       title: {

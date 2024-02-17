@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import QRCode from "react-qr-code";
 
 const DeliverySuccess = () => {
 const [order, setOrder] = useState(null);
@@ -19,6 +20,7 @@ useEffect(() => {
 }, []);
   return (
     <div className="w-full h-screen relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[117px]">
+      <section className="self-stretch flex flex-col items-center justify-start gap-[9px]"></section>
       <section className="self-stretch flex flex-col items-center justify-start gap-[9px]"></section>
       <section className="self-stretch flex flex-row items-start justify-start pt-0 px-5 pb-[61px] text-center text-5xl text-shade-4 font-label-l2">
         <div className="flex-1 flex flex-col items-center justify-start gap-[24px]">
@@ -67,6 +69,7 @@ useEffect(() => {
                 </div>
               </Link>
             </div>
+            <QRCode value="hey" />
           </div>
         </div>
       </section>

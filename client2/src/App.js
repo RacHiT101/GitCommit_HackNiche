@@ -17,7 +17,6 @@ import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
 import MapBoxx from "./components/maps/MapBoxx";
 import Payment from "./pages/Payment";
-import Explore2 from "./components/Explore2";
 
 function App() {
   const action = useNavigationType();
@@ -114,7 +113,7 @@ function App() {
       <Route path="/map" element={<MapBoxx />} />
       <Route path="/explore" element={<Explore />} />
       <Route path="/pay" element={<Payment />} />
-      <Route path="/fries" element={<FriesComponent />} />
+      {/* <Route path="/fries" element={<FriesComponent />} /> */}
 
     </Routes>
   );

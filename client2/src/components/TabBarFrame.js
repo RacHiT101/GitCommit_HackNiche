@@ -1,9 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import MenuItem from "./MenuItem";
-import PizzaComponent from "./PizzaComponent";
-import BurgerComponent from "./BurgerComponent";
-import CoffeeComponent from "./CoffeeComponent";
-import FriesComponent from "./FriesComponent";
+
 import fries from "../assets/fries.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";

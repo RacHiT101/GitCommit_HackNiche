@@ -1,4 +1,4 @@
-const HomeIndicatorRectangle = () => {
+const HomeIndicatorRectangle = ({ totalPrice }) => {
   return (
     <section className="self-stretch flex flex-row items-start justify-start pt-0 px-5 pb-[13px] text-left text-base text-tint-7 font-label-l2">
       <div className="flex-1 flex flex-col items-start justify-start gap-[48px]">
@@ -19,40 +19,16 @@ const HomeIndicatorRectangle = () => {
           </div>
         </div>
         <div className="self-stretch flex flex-col items-start justify-start gap-[16px]">
-          <div className="self-stretch flex flex-col items-start justify-start gap-[8px]">
-            <div className="self-stretch flex flex-row items-center justify-between">
-              <div className="h-[22px] relative font-medium inline-block">
-                Subtotal
-              </div>
-              <div className="h-[27px] w-[55px] relative font-medium inline-block text-sm text-tint-10">
-                <span>$</span>
-                <span className="text-shade-1 text-base">
-                  <span>15.39</span>
-                  <span className="text-xl">{` `}</span>
-                </span>
-              </div>
-            </div>
-            <div className="self-stretch flex flex-row items-center justify-between">
-              <div className="relative font-medium">Delivery fee</div>
-              <div className="h-[27px] relative font-medium text-shade-1 inline-block">
-                <span>Free</span>
-                <span className="text-xl">{` `}</span>
-              </div>
-            </div>
-          </div>
-          <img
-            className="self-stretch relative max-w-full overflow-hidden max-h-full"
-            loading="eager"
-            alt=""
-            src="/line-4.svg"
-          />
           <div className="self-stretch flex flex-row items-center justify-between text-shade-1">
             <div className="h-[22px] relative font-medium inline-block">
               Total
             </div>
             <div className="h-[27px] relative font-medium inline-block text-mid text-tint-10">
-              <span>$</span>
-              <span className="text-xl text-shade-1">{`15.39 `}</span>
+              <span>Rs </span>
+              <span className="text-shade-1 text-base">
+                <span>{totalPrice}</span>
+                <span className="text-xl">{` `}</span>
+              </span>
             </div>
           </div>
         </div>

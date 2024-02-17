@@ -133,9 +133,12 @@ const ComplexTable = (props) => {
                     let data = "";
                     if (cell.column.Header === "ORDER NO") {
                       data = (
-                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                        <div className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
-                        </p>
+                          {/* <div>
+
+                          Pre order</div> */}
+                        </div>
                       );
                     } 
                     else if (cell.column.Header === "NAME") {

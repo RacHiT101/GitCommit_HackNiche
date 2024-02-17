@@ -8,30 +8,19 @@ function View() {
   const { id } = useParams();
   const [task, setTask] = useState([]);
   const [count, setCount] = useState(0);
+  const [createdTime, setCreatdTime] = useState("");
   const [total, setTotal] = useState(0);
   console.log(id)
   const getTask = async () => {
     try {
 
-      const res = await axios.get(`http://localhost:5001/products/${id}`);
+      const res = await axios.get(`http://localhost:5001/order/${id}`);
 
-  const no = res.data.filter((item) => item.status === "completed").length;
-  const total = res.data.length;
-  setCount(no);
-  setTotal(total);
-    localStorage.setItem(
-      "countData",
-      JSON.stringify({
-        id: id,
-        count: no,
-        total: total,
-      })
-    );
-      
-console.log(count);
-      console.log(res.data);
+      setCreatdTime(res.data.createdAt)
+  
+      // console.log("hiii" ,res.data.createdAt);
 
-      setTask(res.data);
+      setTask(res.data.products);
         } catch (err) {
       console.log(err);
     }
@@ -41,12 +30,11 @@ console.log(count);
 
   useEffect(() => {
     getTask();
-    console.log(count);
   }
-    , [count]);
+    , []);
   return (
     <div>
-      <ComplexTable cust={task} id={id} columnsData={columnsDataComplex}/>
+      <ComplexTable createdTime={createdTime} cust={task} id={id} columnsData={columnsDataComplex}/>
     </div>
   )
 }

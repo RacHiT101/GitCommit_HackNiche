@@ -20,7 +20,7 @@ import { useEffect } from "react";
 import { GrAdd } from "react-icons/gr";
 import { Modall } from "./Modal";
 const PreOrder = (props) => {
-  const { columnsData,count } = props;
+  const { columnsData } = props;
   const [name,setName] = useState("");
   const [cust,setCust] = useState([]);
 
@@ -28,9 +28,12 @@ const PreOrder = (props) => {
     
     try{
       const res = await axios.get("http://localhost:5001/order/");
+
+      const filteredOrders = res.data.filter(order => order.preorder !== false);
+
       console.log(res.data);
       
-      setCust(res.data);
+      setCust(filteredOrders);
     }
     catch(err){
       console.log(err);
@@ -50,9 +53,10 @@ const PreOrder = (props) => {
     const editCust = async (id) => {
       try {
         const res = await axios.put(`http://localhost:5001/customer/${id}`,
-        {
-          progress : count.count/count.total*100
-        });
+        // {
+        //   progress : count.count/count.total*100
+        // }
+        );
         console.log(res.data);
         window.location.reload();
       } catch (err) {
@@ -98,7 +102,7 @@ const PreOrder = (props) => {
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
       <div className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Current Orders
+          PreOrder 
         </div>
       
         <Modall/>
@@ -135,6 +139,7 @@ const PreOrder = (props) => {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
+                          
                         </p>
                       );
                     } 
@@ -162,6 +167,29 @@ const PreOrder = (props) => {
                         </div>
                       );
                     }
+                    else if (cell.column.Header === "View Order") {
+                      data = (
+                        <Link
+                          to={`/admin/view-details/${cell.row.original._id}`}
+                          className="text-sm font-bold text-navy-700 dark:text-white"
+                        >
+                          <Button
+                            fontFamily={"heading"}
+                            w={"70%"}
+                            bgGradient="linear(to-r, red.400,red.700)"
+                            color={"white"}
+                            _hover={{
+                              bgGradient: "linear(to-r, red.400,red.700)",
+                              boxShadow: "xl",
+                            }}
+                            fontSize={"small"}
+                            padding="4px"
+                          >
+                           View Order
+                          </Button>
+                        </Link>
+                      );
+                    } 
                     // else if (cell.column.Header === "Time") {
                     //   let dateObject = new Date(cell.value);
                     //   let formattedDate =

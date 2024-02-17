@@ -23,7 +23,8 @@ import { EditModal } from "./EditModal";
 import Modalll from "./Modalll";
 // import { Modall } from "./Modal";
 const ComplexTable = (props) => {
-  const { columnsData, cust, id } = props;
+  const { columnsData, cust, id, createdTime } = props;
+  
   const [name,setName] = useState("");
   const [open,setOpen] = useState(false);
   // const [cust,setCust] = useState([]);
@@ -55,7 +56,7 @@ const ComplexTable = (props) => {
   //   getCust();
   // }, []);
 
-  console.log(cust);
+  console.log("wdojwdowjd",createdTime);
 
 
   const columns = useMemo(() => columnsData, [columnsData]);
@@ -116,7 +117,7 @@ const ComplexTable = (props) => {
               return (
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
-                  console.log(cell);
+                  console.log("Hello",cell);
                     let data = "";
                     if (cell.column.Header === "PRODUCT ID") {
                       data = (
@@ -141,14 +142,14 @@ const ComplexTable = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "Start Date") {
-                      let dateObject = new Date(cell.value);
+                    } else if (cell.column.Header === "TIME") {
+                      let dateObject = new Date(createdTime);
                       let formattedDate =
                         dateObject.toLocaleDateString("en-US"); // format: MM/DD/YYYY
 
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
-                          {formattedDate}
+                          {formattedDate}  
                         </p>
                       );
                     } else if (cell.column.Header === "End Date") {
@@ -160,51 +161,21 @@ const ComplexTable = (props) => {
                           22-10-24
                         </p>
                       );
-                    } else if (cell.column.Header === "  ") {
+                    } else if (cell.column.Header === "PRODUCT NAME") {
                       // let formattedDate = "22-10-24"
 
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {/* {formattedDate} */}
-                          <Modalll />
+                          {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "PROGRESS") {
-                      data = <Progress width="w-[108px]" value={cell.value} />;
-                    } else if (cell.column.Header === "VIEW DETAILS") {
+                    } else if (cell.column.Header === "QUANTITY") {
+                      // let formattedDate = "22-10-24" 
                       data = (
-                        <Link
-                          to={`/admin/view-details/${cell.row.original._id}`}
-                          className="text-sm font-bold text-white"
-                        >
-                          <Button
-                            fontFamily={"heading"}
-                            w={"70%"}
-                            bg={"white"}
-                            color={"white"}
-                            _hover={{
-                              bg: "blue.500",
-                              boxShadow: "xl",
-                            }}
-                          >
-                            View Details
-                          </Button>
-                        </Link>
-                      );
-                    } else if (cell.column.Header === " ") {
-                      data = (
-                        <Button>
-                          <MdDelete
-                            onClick={() => delCust(cell.row.original._id)}
-                            size={18}
-                          />
-                        </Button>
-                      );
-                    } else if (cell.column.Header === "  ") {
-                      data = (
-                        <Button>
-                          <EditModal data={cell.row.original} />
-                        </Button>
+                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                          {cell.value}
+                        </p>
                       );
                     }
                     return (

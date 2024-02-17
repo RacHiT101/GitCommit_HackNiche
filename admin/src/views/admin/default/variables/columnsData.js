@@ -79,21 +79,22 @@ export const columnsDataColumns = [
   },
 ];
 
+export const columnsDataComplex = [
   {
     Header: "CUSTOMER NAME",
     accessor: "name",
   },
   {
-    Header: "STATUS",
-    accessor: "status",
+    Header: "PROGRESS",
+    accessor: "progress",
+  },
+  {
+    Header: "QUANTITY",
+    accessor: "quantity",
   },
   {
     Header: "DATE",
     accessor: "date",
-  },
-  {
-    Header: "PROGRESS",
-    accessor: "progress",
   },
   {
     Header: "VIEW DETAILS",

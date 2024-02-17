@@ -14,6 +14,7 @@ import TrackDeliveryFullModal from "./pages/TrackDeliveryFullModal";
 import Onboarding from "./pages/Onboarding";
 import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
+import MapBoxx from "./components/maps/MapBoxx";
 
 function App() {
   const action = useNavigationType();
@@ -97,6 +98,7 @@ function App() {
       <Route path="/" element={<Onboarding />} />
       <Route path="/delivery-success" element={<DeliverySuccess />} />
       <Route path="/order-delivered" element={<OrderDelivered />} />
+      <Route path="/map" element={<MapBoxx />} />
     </Routes>
   );
 }

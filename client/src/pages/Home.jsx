@@ -52,7 +52,7 @@ const Home = () => {
 
       <Input className='w-full mt-4 border-2 p-3 border-gray-600 rounded-full' placeholder="What will you like to eat?" />
     </div>
-  );
+  )
 }
 
-export default Home
+export default Home;

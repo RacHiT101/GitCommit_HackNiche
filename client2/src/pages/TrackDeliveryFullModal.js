@@ -5,7 +5,7 @@ const TrackDeliveryFullModal = () => {
   return (
     <div className="w-full relative rounded-13xl overflow-hidden flex flex-col items-center justify-start pt-0 px-0 pb-2 box-border gap-[108px] bg-cover bg-no-repeat bg-[top]">
       <section className="self-stretch flex flex-col items-center justify-start pt-0 px-0 pb-[5px] gap-[9px]">
-        <header className="self-stretch h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
+        {/* <header className="self-stretch h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
           <div className="flex flex-col items-center justify-start">
             <img
               className="w-[28.4px] h-[11.1px] relative"
@@ -43,7 +43,7 @@ const TrackDeliveryFullModal = () => {
             alt=""
             src="/recording-indicator.svg"
           />
-        </header>
+        </header> */}
         <div className="self-stretch flex flex-row items-center justify-start py-0 px-5">
           <div className="h-11 w-11 rounded-3xl bg-white flex flex-row items-center justify-start p-2.5 box-border">
             <img

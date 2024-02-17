@@ -19,7 +19,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { GrAdd } from "react-icons/gr";
 import { Modall } from "./Modal";
-const ComplexTable = (props) => {
+const PreOrder = (props) => {
   const { columnsData,count } = props;
   const [name,setName] = useState("");
   const [cust,setCust] = useState([]);
@@ -230,4 +230,4 @@ const ComplexTable = (props) => {
   );
 };
 
-export default ComplexTable;
+export default PreOrder;

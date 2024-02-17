@@ -220,7 +220,7 @@ const Explore = () => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 mx-5">
-        {foods.map((item, index) => (
+        {filteredItems.map((item, index) => (
           <div
             key={index}
             className="border shadow-lg hover:scale-105 rounded-lg"
@@ -228,10 +228,10 @@ const Explore = () => {
             <img
               className="w-full h-[200px] object-cover rounded-t-lg"
               src={item.image}
-              alt={item.name}
+              alt={item.title}
             />
             <div className="flex justify-between px-2 py-3">
-              <p className="font-bold font-sans text-xl">{item.name}</p>
+              <p className="font-bold font-sans text-xl">{item.title}</p>
               <p>
                 <span className="bg-orange-500 p-1 text-white rounded-full">
                   {item.price}

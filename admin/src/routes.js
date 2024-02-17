@@ -1,75 +1,111 @@
 import React from "react";
 
-import { Icon } from "@chakra-ui/react";
-import {
-  MdBarChart,
-  MdPerson,
-  MdHome,
-  MdLock,
-  MdOutlineShoppingCart,
-} from "react-icons/md";
-
 // Admin Imports
 import MainDashboard from "views/admin/default";
 import NFTMarketplace from "views/admin/marketplace";
 import Profile from "views/admin/profile";
-import DataTables from "views/admin/dataTables";
-import RTL from "views/admin/rtl";
+import DataTables from "views/admin/tables";
+import RTLDefault from "views/rtl/default";
 
 // Auth Imports
-import SignInCentered from "views/auth/signIn";
+import SignIn from "views/auth/SignIn";
+
+// Icon Imports
+import {
+  MdHome,
+  MdOutlineShoppingCart,
+  MdBarChart,
+  MdPerson,
+  MdLock,
+  MdChat,
+  MdFormatPaint
+} from "react-icons/md";
+import { FaMoneyBillAlt } from "react-icons/fa";
+import Budget from "views/admin/budget";
+import Contact from "views/admin/contact";
+
+import PaintWall from "views/admin/PaintWall"
+import View from "views/admin/view-details";
 
 const routes = [
   {
-    name: "Main Dashboard",
+    name: "My Dashboard",
     layout: "/admin",
-    path: "/default",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: MainDashboard,
+    path: "default",
+    icon: <MdHome className="h-6 w-6" />,
+    component: <MainDashboard />,
   },
+  // {
+  //   name: "Contact",
+  //   layout: "/admin",
+  //   path: "contact",
+  //   icon: <MdHome className="h-6 w-6" />,
+  //   component: <Contact />,
+  // },
+
   {
-    name: "NFT Marketplace",
+    name: "Budget",
     layout: "/admin",
-    path: "/nft-marketplace",
-    icon: (
-      <Icon
-        as={MdOutlineShoppingCart}
-        width='20px'
-        height='20px'
-        color='inherit'
-      />
-    ),
-    component: NFTMarketplace,
-    secondary: true,
+    path: "budget-tracking",
+    icon: <FaMoneyBillAlt className="h-6 w-6" />,
+    component: <Budget />,
   },
+  // {
+  //   name: "NFT Marketplace",
+  //   layout: "/admin",
+  //   path: "nft-marketplace",
+  //   icon: <MdOutlineShoppingCart className="h-6 w-6" />,
+  //   component: <NFTMarketplace />,
+  //   secondary: true,
+  // },
   {
-    name: "Data Tables",
+    name: "Paint Wall",
     layout: "/admin",
-    icon: <Icon as={MdBarChart} width='20px' height='20px' color='inherit' />,
-    path: "/data-tables",
-    component: DataTables,
+    path: "paintwall",
+    icon: <MdFormatPaint className="h-6 w-6" />,
+    component: <PaintWall />,
   },
-  {
-    name: "Profile",
-    layout: "/admin",
-    path: "/profile",
-    icon: <Icon as={MdPerson} width='20px' height='20px' color='inherit' />,
-    component: Profile,
-  },
+  // {
+  //   name: "Data Tables",
+  //   layout: "/admin",
+  //   icon: <MdBarChart className="h-6 w-6" />,
+  //   path: "data-tables",
+  //   component: <DataTables />,
+  // },
+  // {
+  //   name: "Profile",
+  //   layout: "/admin",
+  //   path: "profile",
+  //   icon: <MdPerson className="h-6 w-6" />,
+  //   component: <Profile />,
+  // },
   {
     name: "Sign In",
     layout: "/auth",
-    path: "/sign-in",
-    icon: <Icon as={MdLock} width='20px' height='20px' color='inherit' />,
-    component: SignInCentered,
+    path: "sign-in",
+    icon: <MdLock className="h-6 w-6" />,
+    component: <SignIn />,
+  },
+  // {
+  //   name: "RTL Admin",
+  //   layout: "/rtl",
+  //   path: "rtl",
+  //   icon: <MdHome className="h-6 w-6" />,
+  //   component: <RTLDefault />,
+  // },
+  {
+    name: "Contact",
+    layout: "/admin",
+    path: "contact",
+    icon: <MdChat className="h-6 w-6" />,
+    component: <Contact />,
   },
   {
-    name: "RTL Admin",
-    layout: "/rtl",
-    path: "/rtl-default",
-    icon: <Icon as={MdHome} width='20px' height='20px' color='inherit' />,
-    component: RTL,
+    name: "View Details",
+    layout: "/admin",
+    path: "view-details/:id",
+    icon: <MdBarChart className="h-6 w-6" />,
+    component: <View />,
   },
 ];
-
 export default routes;

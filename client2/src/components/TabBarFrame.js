@@ -19,12 +19,11 @@ const TabBarFrame = () => {
       <div className="w-[672px] flex flex-col items-start justify-start gap-[3px]">
         <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-5">
           <div className="flex flex-col items-center justify-center gap-[16px]">
-            <Link to={{ pathname: "/explore", state: { filter } }}>
+            <Link to={{ pathname: "/fries", state: { filter } }}>
               <img
                 className="w-full h-full"
                 src={fries}
                 alt="Fries"
-                onClick={()=>handleClick("fries")}
               />
             </Link>
             <Link to={{ pathname: "/explore", state: { fromDashboard: true } }}>

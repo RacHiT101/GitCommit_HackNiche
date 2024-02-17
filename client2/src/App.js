@@ -17,6 +17,7 @@ import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
 import MapBoxx from "./components/maps/MapBoxx";
 import Payment from "./pages/Payment";
+import FriesComponent from "./components/FriesComponent";
 
 function App() {
   const action = useNavigationType();
@@ -74,6 +75,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/fries":
+          title = "";
+          metaDescription = "";
+          break;
     }
 
     if (title) {
@@ -107,6 +112,8 @@ function App() {
       <Route path="/map" element={<MapBoxx />} />
       <Route path="/explore" element={<Explore />} />
       <Route path="/pay" element={<Payment />} />
+      <Route path="/fries" element={<FriesComponent />} />
+
     </Routes>
   );
 }

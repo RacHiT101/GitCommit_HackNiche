@@ -64,7 +64,7 @@ function FriesComponent() {
          url: "https://thumbs.dreamstime.com/b/tasty-pizza-margherita-tomato-cheese-basil-top-view-isolated-white-background-flat-traditional-italian-fast-food-icon-172075092.jpg",
        },
      ];
-     console.log(products);
+    //  console.log(products);
   const [characters, setCharacters] = useState(initialCharacters);
   const [lastDirection, setLastDirection] = useState();
 

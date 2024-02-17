@@ -8,7 +8,7 @@ const PieChartCard = () => {
       <div className="flex flex-row justify-between px-3 pt-2">
         <div>
           <h4 className="text-lg font-bold text-navy-700 dark:text-white">
-            Your Pie Chart
+            Analytics
           </h4>
         </div>
 
@@ -28,10 +28,10 @@ const PieChartCard = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
             <div className="h-2 w-2 rounded-full bg-brand-500" />
-            <p className="ml-1 text-sm font-normal text-gray-600">Your Files</p>
+            <p className="ml-1 text-sm font-normal text-gray-600">Sale</p>
           </div>
           <p className="mt-px text-xl font-bold text-navy-700  dark:text-white">
-            63%
+            60%
           </p>
         </div>
 
@@ -40,10 +40,21 @@ const PieChartCard = () => {
         <div className="flex flex-col items-center justify-center">
           <div className="flex items-center justify-center">
             <div className="h-2 w-2 rounded-full bg-[#6AD2FF]" />
-            <p className="ml-1 text-sm font-normal text-gray-600">System</p>
+            <p className="ml-1 text-sm font-normal text-gray-600">Distribute</p>
           </div>
           <p className="mt-px text-xl font-bold text-navy-700 dark:text-white">
-            25%
+            30%
+          </p>
+        </div>
+        <div className="h-11 w-px bg-gray-300 dark:bg-white/10" />
+
+        <div className="flex flex-col items-center justify-center">
+          <div className="flex items-center justify-center">
+            <div className="h-2 w-2 rounded-full bg-[#EFF4FB]" />
+            <p className="ml-1 text-sm font-normal text-gray-600">Return</p>
+          </div>
+          <p className="mt-px text-xl font-bold text-navy-700 dark:text-white">
+            10%
           </p>
         </div>
       </div>

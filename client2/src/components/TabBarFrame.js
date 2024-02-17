@@ -1,37 +1,64 @@
 import { Link, useLocation } from "react-router-dom";
 import MenuItem from "./MenuItem";
-import PizzaComponent from "./PizzaComponent";
-import BurgerComponent from "./BurgerComponent";
-import CoffeeComponent from "./CoffeeComponent";
-import FriesComponent from "./FriesComponent";
+
 import fries from "../assets/fries.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const TabBarFrame = () => {
   const [filter, setfilter] = useState("");
+  const [ParentCategory, setParentCategory] = useState([]);
+  const [products, setProducts] = useState([]);
   const handleClick = (food) => {
     setfilter(food);
-    
   };
-  console.log(filter);
+
+  const getProduct = async () => {
+    try {
+      const res = await axios.get("http://localhost:5001/products/");
+      const modifiedProducts = res.data.map((product) => ({
+        ...product,
+        ParentCategory: product.categories[1], // Add the second category as a new field
+      }));
+
+      const uniqueSecondCategories = [
+        ...new Set(modifiedProducts.map((product) => product.ParentCategory)),
+      ];
+      setParentCategory(uniqueSecondCategories);
+
+      console.log(modifiedProducts);
+      setProducts(modifiedProducts);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  console.log(ParentCategory);
+
+  useEffect(() => {
+    getProduct();
+    // console.log(count)
+  }, []);
+  console.log(products);
   return (
     <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-xl text-shade-1 font-label-l2">
       <div className="w-[672px] flex flex-col items-start justify-start gap-[3px]">
         <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-5">
           <div className="flex flex-col items-center justify-center gap-[16px]">
-            <Link to={{ pathname: "/fries", state: { filter } }}>
-              <img
-                className="w-full h-full"
-                src={fries}
-                alt="Fries"
-              />
-            </Link>
-            <Link to={{ pathname: "/explore", state: { fromDashboard: true } }}>
-              <img className="w-full h-full" src={fries} alt="Fries" />
-            </Link>
-            <Link to={{ pathname: "/explore", state: { fromDashboard: true } }}>
-              <img className="w-full h-full" src={fries} alt="Fries" />
-            </Link>
+            {ParentCategory?.map((category) => (
+              <li key={category}>
+                <Link to={`/items/${category}`}>
+                  {category}
+
+                  <img
+                    className="w-full h-full"
+                    src={fries}
+                    alt="Fries"
+                    onClick={() => handleClick("fries")}
+                  />
+                </Link>
+              </li>
+            ))}
           </div>
         </div>
         <div className="bottom-2 fixed w-[390px] flex flex-row items-start justify-start py-0 px-5 box-border">

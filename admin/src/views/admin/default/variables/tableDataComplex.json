@@ -1,26 +1,35 @@
 [
   {
-    "name":"Horizon UI PRO",
-    "status": "Approved",
-    "date": "18 Apr 2022",
-    "progress": 75.5  
+    "name": "Priyanka",
+    "status": "Completed",
+    "date": "24.Jan.2021",
+    "progress": 30,
+    "viewDetails": "View Details",
+    "id":"65ba7fcf40c147cba08948e9"
   },
   {
-    "name":"Horizon UI Free",
-    "status": "Disable",
-    "date": "18 Apr 2022",
-    "progress": 25.5  
+    "name": "Rachit",
+    "status": "Pending",
+    "date": "30.Dec.2021",
+    "progress": 30,
+    "viewDetails": "View Details",
+    "id":"65ba7b3340c147cba08948c4"
   },
   {
-    "name":"Marketplace",
-    "status": "Error",
-    "date": "20 May 2021",
-    "progress": 90  
+    "name": "Rhythm",
+    "status": "Ongoing",
+    "date": "20.May.2021",
+    "progress": 30,
+    "viewDetails": "View Details",
+    "id": "65ba7b3940c147cba08948c6"
   },
   {
-    "name":"Weekly Updates",
-    "status": "Approved",
-    "date": "12 Jul 2021",
-    "progress": 50.5  
+    "name": "Mahek",
+    "status": "Completed",
+    "date": "12.Jul.2021",
+    "progress": 30,
+    "viewDetails": "View Details",
+    "id": "65ba7b4040c147cba08948c8"
   }
+  
 ]

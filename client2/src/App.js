@@ -4,6 +4,7 @@ import {
   Route,
   useNavigationType,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductPageFood from "./pages/ProductPageFood";
@@ -17,18 +18,37 @@ import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
 import MapBoxx from "./components/maps/MapBoxx";
 import Payment from "./pages/Payment";
-
+import alanBtn from "@alan-ai/alan-sdk-web";
 function App() {
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (action !== "POP") {
       window.scrollTo(0, 0);
     }
   }, [action, pathname]);
+  
+  useEffect(() => {
+    // Initialize Alan AI with your project key
+    const alan = alanBtn({
+      key: "655f88c1605de19ff1e46d6c5e9493b02e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: (commandData) => {
+        if (commandData.command === "navigation") {
+          console.log(commandData.route);
+          // Use your router's API to navigate to the route
+          navigate(commandData.route);
+        }
+      },
+    });
 
+    // Clean up the Alan SDK when the component unmounts
+    return () => {
+      alan.deactivate();
+    };
+  }, []);
   useEffect(() => {
     let title = "";
     let metaDescription = "";
@@ -75,9 +95,9 @@ function App() {
         metaDescription = "";
         break;
       case "/fries":
-          title = "";
-          metaDescription = "";
-          break;
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -114,7 +134,6 @@ function App() {
       <Route path="/explore" element={<Explore />} />
       <Route path="/pay" element={<Payment />} />
       {/* <Route path="/fries" element={<FriesComponent />} /> */}
-
     </Routes>
   );
 }

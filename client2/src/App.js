@@ -17,6 +17,7 @@ import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
 import MapBoxx from "./components/maps/MapBoxx";
 import Payment from "./pages/Payment";
+import Explore2 from "./components/Explore2";
 
 function App() {
   const action = useNavigationType();
@@ -97,6 +98,8 @@ function App() {
       <Route path="/product-page-drink" element={<ProductPageDrink />} />
       <Route path="/cart-or-basket" element={<CartOrBasket />} />
       <Route path="/track-delivery" element={<TrackDelivery />} />
+      <Route path="/items/:categoryy" element={<Explore />} />
+
       <Route
         path="/track-delivery-full-modal"
         element={<TrackDeliveryFullModal />}

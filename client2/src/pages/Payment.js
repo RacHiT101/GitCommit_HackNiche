@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState } from "react";
-import "./payment.css";
 import CardFrame from "../components/CardFrame";
 import FoodCard from "../components/FoodCard";
 import WifiIcon from "../components/WifiIcon";

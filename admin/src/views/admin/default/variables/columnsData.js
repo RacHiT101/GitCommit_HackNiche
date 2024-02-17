@@ -79,7 +79,6 @@ export const columnsDataColumns = [
   },
 ];
 
-export const columnsDataComplex = [
   {
     Header: "CUSTOMER NAME",
     accessor: "name",

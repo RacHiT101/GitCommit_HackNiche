@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import ComplexTable from './components/ComplexTable';
-import {columnsDataCheck} from "./variables/columnsData"
+import {columnsDataComplex} from "./variables/columnsData"
 import axios from 'axios';
 
 function View() {
@@ -46,7 +46,7 @@ console.log(count);
     , [count]);
   return (
     <div>
-      <ComplexTable cust={task} id={id} columnsData={columnsDataCheck}/>
+      <ComplexTable cust={task} id={id} columnsData={columnsDataComplex}/>
     </div>
   )
 }

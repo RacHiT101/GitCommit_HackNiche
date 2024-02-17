@@ -1,7 +1,7 @@
 
 export const columnsDataComplex = [
   {
-    Header: "Product Id",
+    Header: "ORDER NO",
     accessor: "orderId",
   },
   {

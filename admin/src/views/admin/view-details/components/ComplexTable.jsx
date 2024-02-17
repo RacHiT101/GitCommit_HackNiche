@@ -112,13 +112,13 @@ const ComplexTable = (props) => {
           </thead>
           <tbody {...getTableBodyProps()}>
             {page.map((row, index) => {
-              // console.log(row);
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
+                  console.log(cell);
                     let data = "";
-                    if (cell.column.Header === "TASK") {
+                    if (cell.column.Header === "PRODUCT ID") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}

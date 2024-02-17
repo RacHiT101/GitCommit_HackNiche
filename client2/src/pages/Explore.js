@@ -1,19 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { data } from "../Data";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import axios from "axios";
+
+
 const Explore = () => {
   const [foods, setfoods] = useState(data);
-
-
+  const [products, setProducts] = useState([]);
+  const [filteredItems, setFilteredItems] = useState([]);
 
   const { categoryy } = useParams();
   console.log(categoryy);
+
+  
+  const getProduct = async () => {
+    try {
+      const res = await axios.get("http://localhost:5001/products/");
+      const modifiedProducts = res.data.map((product) => ({
+        ...product,
+        ParentCategory: product.categories[1], // Add the second category as a new field
+      }));
+
+      console.log(modifiedProducts);
+      setProducts(modifiedProducts);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+
+  useEffect(() => {
+    getProduct();
+    // console.log(count)
+  }, []);
+  console.log(products);
+
+  useEffect(() => {
+    // Filter items based on categories[1]
+    const filtered = products.filter(product => product.categories[1] === categoryy);
+    setFilteredItems(filtered);
+  }, [products]);
+  console.log(filteredItems);
+
   const filterType = (category) => {
-
-
-
-
     setfoods(
       data.filter((item) => {
         return item.category == category;

@@ -12,7 +12,7 @@ const CartOrBasket = () => {
       <WifiIcon />
       <HomeIndicatorRectangle />
       <section className="self-stretch flex flex-col items-center justify-start gap-[4px] text-left text-mid text-white font-label-l2">
-        <Link to="/order-delivered" className="no-underline  text-white decoration-none">
+        <Link to="/pay" className="no-underline  text-white decoration-none">
           <div className="w-[350px] rounded-13xl bg-accent flex flex-row items-center justify-center p-[22px] box-border">
             <div className=" tracking-[0.01em] text-lg leading-[20px] font-semibold">
               Checkout

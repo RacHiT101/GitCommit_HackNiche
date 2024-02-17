@@ -66,12 +66,12 @@ const Home = () => {
                         src="/locationtick.svg"
                       />
                       <div className="h-[22px] relative font-semibold inline-block">
-                        Del. Address
+                        DJSCE
                       </div>
                     </div>
                     <div className="flex flex-row items-center justify-center py-0 px-2 gap-[4px] text-shade-4">
                       <div className="relative tracking-[0.01em]">
-                        Ikeja, Lagos
+                       Juhu, Vile Parle
                       </div>
                       <img
                         className="h-4 w-4 relative"

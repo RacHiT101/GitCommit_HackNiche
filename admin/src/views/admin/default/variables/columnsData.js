@@ -1,33 +1,29 @@
 export const columnsDataDevelopment = [
   {
-    Header: "CUSTOMER NAME",
+    Header: "ORDER NO",
+    accessor: "orderNo",
+  },
+  {
+    Header: "NAME",
     accessor: "name",
-  },
-  {
-    Header: "TECH",
-    accessor: "tech",
-  },
-  {
-    Header: "DATE",
-    accessor: "date",
   },
   {
     Header: "PROGRESS",
     accessor: "progress",
   },
   {
-    Header: "VIEW DETAILS",
-    accessor: "viewDetails",
-  },
-  {
-    Header: " ",
-    accessor: "d",
+    Header: "ACTION",
+    accessor: "action",
   },
 ];
 
 export const columnsDataCheck = [
   {
-    Header: "CUSTOMER NAME",
+    Header: "ORDER NO",
+    accessor: "orderNo",
+  },
+  {
+    Header: "NAME",
     accessor: "name",
   },
   {
@@ -35,26 +31,18 @@ export const columnsDataCheck = [
     accessor: "progress",
   },
   {
-    Header: "QUANTITY",
-    accessor: "quantity",
-  },
-  {
-    Header: "DATE",
-    accessor: "date",
-  },
-  {
-    Header: "VIEW DETAILS",
-    accessor: "viewDetails",
-  },
-  {
-    Header: " ",
-    accessor: "d",
+    Header: "ACTION",
+    accessor: "action",
   },
 ];
 
 export const columnsDataColumns = [
   {
-    Header: "CUSTOMER NAME",
+    Header: "ORDER NO",
+    accessor: "orderNo",
+  },
+  {
+    Header: "NAME",
     accessor: "name",
   },
   {
@@ -62,46 +50,26 @@ export const columnsDataColumns = [
     accessor: "progress",
   },
   {
-    Header: "QUANTITY",
-    accessor: "quantity",
-  },
-  {
-    Header: "DATE",
-    accessor: "date",
-  },
-  {
-    Header: "VIEW DETAILS",
-    accessor: "viewDetails",
-  },
-  {
-    Header: " ",
-    accessor: "d",
+    Header: "ACTION",
+    accessor: "action",
   },
 ];
 
 export const columnsDataComplex = [
   {
-    Header: "CUSTOMER NAME",
+    Header: "ORDER NO",
+    accessor: "orderNo",
+  },
+  {
+    Header: "NAME",
     accessor: "name",
-  },
-  {
-    Header: "STATUS",
-    accessor: "status",
-  },
-  {
-    Header: "DATE",
-    accessor: "date",
   },
   {
     Header: "PROGRESS",
     accessor: "progress",
   },
   {
-    Header: "VIEW DETAILS",
-    accessor: "viewDetails",
-  },
-  {
-    Header: " ",
-    accessor: "d",
+    Header: "ACTION",
+    accessor: "action",
   },
 ];

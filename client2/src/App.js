@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductPageFood from "./pages/ProductPageFood";
+import Explore from "./pages/Explore";
 import ProductPageDrink from "./pages/ProductPageDrink";
 import CartOrBasket from "./pages/CartOrBasket";
 import TrackDelivery from "./pages/TrackDelivery";
@@ -68,6 +69,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/explore":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -99,6 +104,7 @@ function App() {
       <Route path="/delivery-success" element={<DeliverySuccess />} />
       <Route path="/order-delivered" element={<OrderDelivered />} />
       <Route path="/map" element={<MapBoxx />} />
+      <Route path="/explore" element={<Explore />} />
     </Routes>
   );
 }

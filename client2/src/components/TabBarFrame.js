@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const TabBarFrame = () => {
   return (
     <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-xl text-shade-1 font-label-l2">
@@ -114,12 +116,14 @@ const TabBarFrame = () => {
               alt=""
               src="/heart-2.svg"
             />
-            <img
-              className="h-7 w-7 relative min-h-[28px]"
-              loading="eager"
-              alt=""
-              src="/bag2-2.svg"
-            />
+            <Link to="/cart-or-basket">
+              <img
+                className="h-7 w-7 relative min-h-[28px]"
+                loading="eager"
+                alt=""
+                src="/bag2-2.svg"
+              />
+            </Link>
             <img
               className="h-7 w-7 relative min-h-[28px]"
               loading="eager"

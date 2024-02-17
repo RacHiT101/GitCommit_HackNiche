@@ -41,14 +41,14 @@ const TopFrame = () => {
           src="/recording-indicator.svg"
         />
       </div> */}
-      <div className="self-stretch flex flex-row items-start justify-start py-0 px-5 gap-[12px]">
+      {/* <div className="self-stretch flex flex-row items-start justify-start py-0 px-5 gap-[12px]">
         <div className="h-[3px] flex-1 relative rounded-2xl bg-tint-1" />
         <div className="h-[3px] flex-1 relative rounded-2xl bg-tint-1" />
         <div className="h-[3px] flex-1 relative rounded-2xl bg-mediumaquamarine">
           <div className="absolute top-[0px] left-[0px] rounded-2xl bg-mediumaquamarine w-[106px] h-[3px] hidden" />
           <div className="absolute top-[0px] left-[0px] rounded-2xl bg-tint-1 w-[53px] h-[3px] z-[1]" />
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };

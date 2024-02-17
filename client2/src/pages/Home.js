@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import TabBarFrame from "../components/TabBarFrame";
 
 const Home = () => {
@@ -44,9 +45,9 @@ const Home = () => {
               src="/recording-indicator.svg"
             />
           </header> */}
-          <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-5">
+          <div className="self-stretch flex flex-row items-start justify-start pt-8 py-0 pr-0 pl-5">
             <div className="flex-1 flex flex-row items-center justify-start gap-[10px]">
-              <div className="flex-1 flex flex-col items-start justify-start gap-[24px] min-w-[234px]">
+              <div className="flex flex-col items-start justify-start gap-[24px] ">
                 <div className="self-stretch flex flex-row items-center justify-between py-0 pr-2.5 pl-0 text-tint-8">
                   <div className="h-11 w-11 rounded-3xl box-border flex flex-row items-center justify-start py-2.5 pr-[11px] pl-[9px] border-[1px] border-solid border-tint-3">
                     <img
@@ -111,16 +112,18 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <div className="self-stretch flex flex-col items-start justify-start pt-0 px-0 pb-4 gap-[16px] text-tint-7">
-                  <div className="w-[350px] rounded-3xl box-border flex flex-row items-end justify-start py-3 px-4 gap-[12px] border-[0.5px] border-solid border-tint-5">
+                <div className="flex flex-col items-start justify-start pt-0 px-0 pb-4 gap-[16px] text-tint-7">
+                  <div className=" rounded-3xl box-border flex flex-row items-end justify-start py-3 px-4 gap-[12px] border-[0.5px] border-solid border-tint-5">
                     <img
-                      className="h-6 w-6 relative min-h-[24px]"
+                      className="h-6 w-6 relative min-h-[20px]"
                       alt=""
                       src="/searchnormal.svg"
                     />
-                    <div className="relative tracking-[0.01em]">
-                      What will you like to eat?
-                    </div>
+                    <input
+                      type="text"
+                      placeholder="What are you looking for?"
+                      class="h-full w-full rounded-full bg-transparent text-sm font-medium text-navy-700 outline-none  "
+                    />
                   </div>
                   <div className="self-stretch flex flex-row items-start justify-center gap-[20px] text-tint-9">
                     <div className="flex-1 flex flex-col items-center justify-start gap-[4px] min-w-[55px] max-w-[56px] text-shade-4">
@@ -139,7 +142,7 @@ const Home = () => {
                     </div>
                     <div className="flex-1 flex flex-col items-center justify-start gap-[4px] min-w-[55px] max-w-[56px]">
                       <div className="w-14 h-14 relative rounded-37xl bg-tint-2 overflow-hidden shrink-0">
-                        <div className="absolute h-full w-full top-[0.71%] right-[-0.54%] bottom-[-0.71%] left-[0.54%] rounded-37xl bg-tint-2 hidden" />
+                        <div className="absolute h-full w-full top-[0.71%] right-[-0.54%] bottom-[-0.71%] left-[0.54%] rounded-37xl bg-tint-2 hidden " />
                         <img
                           className="absolute bottom-[-5.1px] left-[calc(50%_-_36px)] w-[71.8px] h-[61.1px] object-contain z-[1]"
                           loading="eager"
@@ -194,12 +197,14 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="self-stretch flex flex-row items-center justify-between py-0 pr-2.5 pl-0 text-xl">
-                  <div className="h-[27px] relative font-medium inline-block">
+                  <div className="text-xl relative font-bold inline-block">
                     Recommended
                   </div>
-                  <div className="h-[22px] relative text-base font-medium text-accent inline-block">
-                    View all
-                  </div>
+                  <Link to="/explore">
+                    <div className="text-lg relative text-base font-semibold text-accent inline-block">
+                      View all
+                    </div>
+                  </Link>
                 </div>
               </div>
               <div className="flex-1 flex flex-col items-start justify-start pt-[5px] px-0 pb-0 box-border min-w-[227px] text-5xl text-tint-1">

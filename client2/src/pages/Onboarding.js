@@ -3,7 +3,7 @@ import MainHeading from "../components/MainHeading";
 
 const Onboarding = () => {
   return (
-    <div className="w-full relative  bg-accent overflow-hidden flex flex-col items-start justify-start gap-[391px]">
+    <div className="w-full relative h-screen bg-accent overflow-hidden flex flex-col items-start justify-start gap-[391px]">
       <TopFrame />
       <MainHeading />
       <section className="w-[401px] h-[376px] absolute my-0 mx-[!important] top-[118px] left-[-35px]">
@@ -32,7 +32,7 @@ const Onboarding = () => {
           src="/frame-14@2x.png"
         />
         <img
-          className="absolute top-[33px] left-[0px] w-[379.1px] h-[327.2px] object-contain z-[2]"
+          className="absolute mx-auto ml-16 left-[0px] h-80 object-contain z-[2]"
           alt=""
           src="/burgerpngpngimagesyellowimages12-2@2x.png"
         />

@@ -26,14 +26,13 @@ import PieGraph from "./components/PieGraph";
 const Budget = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [todoDetails, setTodoDetails] = useState("");
-  const [expenseAmount, setExpenseAmount] = useState("");
+  const [expenseAmount, setExpenseAmount] = useState(0);
 
   const [taskExpenses, setTaskExpenses] = useState({
-    flooring: [],
-    painting: [],
-    plumbing: [],
-    wiring: [],
-    furniture: [],
+    Fruits: [],
+    vegetables: [],
+    Cutlery: [],
+    Fuel: [],
   });
 
   const [selectedTask, setSelectedTask] = useState(null);
@@ -66,7 +65,7 @@ const Budget = () => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="">
       <div>
         <div className="mt-4 grid grid-cols-1 gap-4 xl:grid-cols-11">
           <div
@@ -88,7 +87,7 @@ const Budget = () => {
               </div>
               <div className="chartRef">
                 <div style={{ minHeight: "395px" }}>
-                  <BarGraph taskExpenses={taskExpenses} />
+                  {/* <BarGraph taskExpenses={taskExpenses} /> */}
                 </div>
               </div>
             </div>
@@ -103,7 +102,7 @@ const Budget = () => {
               <div className="mt-20 flex items-center justify-center">
                 <div className="chartRef">
                   <div className=" mx-auto w-[250px]">
-                    <PieGraph taskExpenses={taskExpenses}/>
+                    {/* <PieGraph taskExpenses={taskExpenses}/> */}
                   </div>
                 </div>
               </div>
@@ -111,22 +110,22 @@ const Budget = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-5 2xl:grid-cols-5 3xl:grid-cols-5">
+      <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-4">
         <button
           onClick={() =>
             handleTaskCardClick(
               <GiFloorPolisher className="h-7 w-7" />,
-              "Flooring"
+              "Fruits"
             )
           }
         >
           <TaskCard
             icon={<GiFloorPolisher className="h-7 w-7" />}
-            title={"Flooring"}
-            subtitle={`$${taskExpenses.flooring
+            title={"Fruits"}
+            subtitle={`$${taskExpenses.Fruits
               .reduce((acc, expense) => acc + parseFloat(expense.amount), 0)
               .toFixed(2)}`}
-            previousExpenses={taskExpenses.flooring}
+            previousExpenses={taskExpenses.Fruits}
           />
         </button>
 
@@ -134,17 +133,17 @@ const Budget = () => {
           onClick={() =>
             handleTaskCardClick(
               <GiLargePaintBrush className="h-7 w-7" />,
-              "Painting"
+              "vegetables"
             )
           }
         >
           <TaskCard
             icon={<GiLargePaintBrush className="h-6 w-6" />}
-            title={"Painting"}
-            subtitle={`$${taskExpenses.painting
+            title={"Vegetables"}
+            subtitle={`$${taskExpenses.vegetables
               .reduce((acc, expense) => acc + parseFloat(expense.amount), 0)
               .toFixed(2)}`}
-            previousExpenses={taskExpenses.painting}
+            previousExpenses={taskExpenses.vegetables}
           />
         </button>
 
@@ -152,47 +151,32 @@ const Budget = () => {
           onClick={() =>
             handleTaskCardClick(
               <GiStraightPipe className="h-7 w-7" />,
-              "Plumbing"
+              "Cutlery"
             )
           }
         >
           <TaskCard
             icon={<GiStraightPipe className="h-7 w-7" />}
-            title={"Plumbing"}
-            subtitle={`$${taskExpenses.plumbing
+            title={"Cutlery"}
+            subtitle={`$${taskExpenses.Cutlery
               .reduce((acc, expense) => acc + parseFloat(expense.amount), 0)
               .toFixed(2)}`}
-            previousExpenses={taskExpenses.plumbing}
+            previousExpenses={taskExpenses.Cutlery}
           />
         </button>
 
         <button
           onClick={() =>
-            handleTaskCardClick(<GiWireCoil className="h-7 w-7" />, "Wiring")
+            handleTaskCardClick(<GiWireCoil className="h-7 w-7" />, "Fuel")
           }
         >
           <TaskCard
             icon={<GiWireCoil className="h-6 w-6" />}
-            title={"Wiring"}
-            subtitle={`$${taskExpenses.wiring
+            title={"Fuel"}
+            subtitle={`$${taskExpenses.Fuel
               .reduce((acc, expense) => acc + parseFloat(expense.amount), 0)
               .toFixed(2)}`}
-            previousExpenses={taskExpenses.wiring}
-          />
-        </button>
-
-        <button
-          onClick={() =>
-            handleTaskCardClick(<MdChair className="h-7 w-7" />, "Furniture")
-          }
-        >
-          <TaskCard
-            icon={<MdChair className="h-7 w-7" />}
-            title={"Furniture"}
-            subtitle={`$${taskExpenses.furniture
-              .reduce((acc, expense) => acc + parseFloat(expense.amount), 0)
-              .toFixed(2)}`}
-            previousExpenses={taskExpenses.furniture}
+            previousExpenses={taskExpenses.Fuel}
           />
         </button>
       </div>

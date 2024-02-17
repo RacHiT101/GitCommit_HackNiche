@@ -8,8 +8,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* take full viewport height */
-  width: 100vw; /* take full viewport width */
+  height: 50vh; /* take full viewport height */
+  width: 95vw; /* take full viewport width */
+}
+.instructions {
+  text-align: center;
+  font-size: 1.2em;
+  color: #888;
+  margin-bottom: 10px;
 }
 
 .card {
@@ -18,7 +24,7 @@
   width: 80vw;
   max-width: 260px;
   height: 300px;
-  box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.30);
   border-radius: 20px;
   background-size: cover;
   background-position: center;

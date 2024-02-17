@@ -1,27 +1,26 @@
 const mongoose = require('mongoose')
 const productSchema = new mongoose.Schema(
-  {
-    id: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Customer",
-      required: true,
+    {
+        title:{
+            type:String,
+            required:true,
+            unique:true
+
+        },
+        desc:{
+            type:String,
+            required:true,
+        },
+        
+        categories:{
+            type:Array,
+        },
+        price:{
+            type:Number,
+            required:true
+        },
+        
     },
-    taskname: {
-      type: String,
-      required: true,
-    },
-    status: {
-      type: String,
-      enum: ["pending", "ongoing", "completed"],
-      default: "pending",
-    },
-    date: {
-      type: Date,
-    },
-    // progress: {
-    //   type: Number,
-    // },
-  },
-  { timestamps: true }
-);
+    {timestamps:true}
+)
 module.exports = mongoose.model("Product",productSchema)

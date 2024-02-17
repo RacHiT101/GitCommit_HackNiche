@@ -19,7 +19,7 @@ import axios from "axios";
 import { useEffect } from "react";
 import { GrAdd } from "react-icons/gr";
 import { Modall } from "./Modal";
-const ComplexTable = (props) => {
+const PreOrder = (props) => {
   const { columnsData,count } = props;
   const [name,setName] = useState("");
   const [cust,setCust] = useState([]);
@@ -144,49 +144,16 @@ const ComplexTable = (props) => {
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "View Order") {
-                      data = (
-                        <Link
-                          to={`/admin/view-details/${cell.row.original._id}`}
-                          className="text-sm font-bold text-navy-700 dark:text-white"
-                        >
-                          <Button
-                            fontFamily={"heading"}
-                            w={"70%"}
-                            bgGradient="linear(to-r, red.400,red.700)"
-                            color={"white"}
-                            _hover={{
-                              bgGradient: "linear(to-r, red.400,red.700)",
-                              boxShadow: "xl",
-                            }}
-                            fontSize={"small"}
-                            padding="4px"
-                          >
-                           View Order
-                          </Button>
-                        </Link>
-                      );
                     } else if (cell.column.Header === "STATUS") {
                       data = (
                         <div className="flex items-center gap-2">
                           <div className={`rounded-full text-xl`}>
                             {cell.value === "completed" ? (
-                              <div className="flex items-center justify-center text-sm font-bold text-navy-700 dark:text-white">
-                                {" "}
-                                <MdCheckCircle className="text-green-500" />{" "}
-                                Paid{" "}
-                              </div>
+                            <div className="text-sm flex justify-center items-center font-bold text-navy-700 dark:text-white">  <MdCheckCircle className="text-green-500" /> Paid </div>
                             ) : cell.value === "pending" ? (
-                              <div className="flex items-center justify-center text-sm font-bold text-navy-700 dark:text-white">
-                                {" "}
-                                <MdCancel className="text-red-500" /> Pending{" "}
-                              </div>
+                              <div className="text-sm flex justify-center items-center font-bold text-navy-700 dark:text-white"> <MdCancel className="text-red-500" /> Pending </div>
                             ) : cell.value === "ongoing" ? (
-                              <div className="flex items-center justify-center text-sm font-bold text-navy-700 dark:text-white">
-                                {" "}
-                                <MdOutlineError className="text-orange-500" />{" "}
-                                Pending{" "}
-                              </div>
+                              <div className="text-sm flex justify-center items-center font-bold text-navy-700 dark:text-white"> <MdOutlineError className="text-orange-500" /> Pending </div>
                             ) : null}
                           </div>
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
@@ -226,8 +193,9 @@ const ComplexTable = (props) => {
                             }}
                             fontSize={"small"}
                             padding="4px"
+                            
                           >
-                            Mark as Preparing
+                           Mark as Preparing
                           </Button>
                         </Link>
                       );
@@ -262,4 +230,4 @@ const ComplexTable = (props) => {
   );
 };
 
-export default ComplexTable;
+export default PreOrder;

@@ -1,74 +1,23 @@
-export const columnsDataDevelopment = [
+
+export const columnsDataComplex = [
   {
     Header: "ORDER NO",
-    accessor: "orderNo",
+    accessor: "orderId",
   },
   {
     Header: "NAME",
-    accessor: "name",
+    accessor: "user.username",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "STATUS",
+    accessor: "status",
+  },
+  {
+    Header: "View Order",
+    accessor: "viewOrder",
   },
   {
     Header: "ACTION",
     accessor: "action",
   },
 ];
-
-export const columnsDataCheck = [
-  {
-    Header: "ORDER NO",
-    accessor: "orderNo",
-  },
-  {
-    Header: "NAME",
-    accessor: "name",
-  },
-  {
-    Header: "PROGRESS",
-    accessor: "progress",
-  },
-  {
-    Header: "ACTION",
-    accessor: "action",
-  },
-];
-
-export const columnsDataColumns = [
-  {
-    Header: "ORDER NO",
-    accessor: "orderNo",
-  },
-  {
-    Header: "NAME",
-    accessor: "name",
-  },
-  {
-    Header: "PROGRESS",
-    accessor: "progress",
-  },
-  {
-    Header: "ACTION",
-    accessor: "action",
-  },
-];
-
-//   {
-//     Header: "ORDER NO",
-//     accessor: "orderNo",
-//   },
-//   {
-//     Header: "NAME",
-//     accessor: "name",
-//   },
-//   {
-//     Header: "PROGRESS",
-//     accessor: "progress",
-//   },
-//   {
-//     Header: "ACTION",
-//     accessor: "action",
-//   },
-// ];

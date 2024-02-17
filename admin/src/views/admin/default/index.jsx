@@ -4,13 +4,10 @@ import TotalSpent from "views/admin/default/components/TotalSpent";
 import PieChartCard from "views/admin/default/components/PieChartCard";
 import { IoMdHome } from "react-icons/io";
 import { IoDocuments } from "react-icons/io5";
-import { MdBarChart, MdDashboard , MdReviews } from "react-icons/md";
+import { MdBarChart, MdDashboard, MdReviews } from "react-icons/md";
 import { FaTruck } from "react-icons/fa";
 import { FaConciergeBell } from "react-icons/fa";
 import { RiTakeawayFill } from "react-icons/ri";
-
-
-
 
 import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
 
@@ -21,9 +18,10 @@ import DailyTraffic from "views/admin/default/components/DailyTraffic";
 import TaskCard from "views/admin/default/components/TaskCard";
 import tableDataCheck from "./variables/tableDataCheck.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
+import MostOrdered from "./components/MostOrdered";
+import OutOfStock from "./components/OutOfStock";
 
 const Dashboard = () => {
-
   const count = JSON.parse(localStorage.getItem("countData"));
   console.log(count);
   return (
@@ -65,28 +63,35 @@ const Dashboard = () => {
 
       {/* Charts */}
 
-      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-2">
-        <TotalSpent />
-        <WeeklyRevenue />
+      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="col-span-2 grid">
+          <TotalSpent />
+        </div>
+        <PieChartCard />
       </div>
 
       {/* Complex Table , Task & Calendar */}
 
-      <div className="mt-10">
+      <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
+        <div className="col-span-2 grid">
         <ComplexTable
           columnsData={columnsDataComplex}
           tableData={tableDataComplex}
           // total={total}
           count={count}
         />
+        </div>
+        <MostOrdered />
       </div>
+      
       {/* Tables & Charts */}
 
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-1">
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
           <TaskCard />
           <div className="grid grid-cols-1 rounded-[20px]">
-            <MiniCalendar />
+            {/* <MiniCalendar /> */}
+            <OutOfStock/>
           </div>
         </div>
       </div>

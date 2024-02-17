@@ -91,7 +91,7 @@ const MapBoxx = () => {
   const GeolocateControlRef = React.useRef();
 
   React.useEffect(() => {
-    getRoute();
+    // getRoute();
   }, []);
 
   return (
@@ -116,13 +116,13 @@ const MapBoxx = () => {
           onGeolocate={(e) => setStart([e.coords.longitude, e.coords.latitude])}
           ref={GeolocateControlRef}
         />
-        <NavigationControl />
+        {/* <NavigationControl /> */}
       </Map>
 
       <div>
-        {steps.map((item, i) => {
+        {steps.reverse().map((item, i) => {
           return (
-            <div className="absolute m-5 w-1/4 top-0 bottom-1/5 p-5 bg-white overflow-y-scroll font-sans">
+            <div className="absolute scroll-m-0 rounded-lg m-5 max-w-content top-0 bottom-1/5 p-5 bg-white overflow-y-scroll font-sans">
               <Instructions no_={i + 1} step={item.maneuver.instruction} />
             </div>
           );

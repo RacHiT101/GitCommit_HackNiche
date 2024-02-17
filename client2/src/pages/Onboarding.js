@@ -1,5 +1,6 @@
 import TopFrame from "../components/TopFrame";
 import MainHeading from "../components/MainHeading";
+import Spline from '@splinetool/react-spline';
 
 const Onboarding = () => {
   return (
@@ -31,11 +32,12 @@ const Onboarding = () => {
           alt=""
           src="/frame-14@2x.png"
         />
-        <img
+        {/* <img
           className="absolute top-[33px] left-[0px] w-[379.1px] h-[327.2px] object-contain z-[2]"
           alt=""
           src="/burgerpngpngimagesyellowimages12-2@2x.png"
-        />
+        /> */}
+        <Spline scene="https://prod.spline.design/7qUU9WYe53aAZIvs/scene.splinecode" />
         <img
           className="absolute top-[294.9px] left-[353.9px] w-[47.2px] h-[35.6px] object-contain z-[3]"
           loading="eager"

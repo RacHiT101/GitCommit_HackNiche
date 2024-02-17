@@ -131,13 +131,13 @@ const ComplexTable = (props) => {
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header === "Order No") {
+                    if (cell.column.Header === "ORDER NO") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "Name") {
+                    } else if (cell.column.Header === "NAME") {
                       data = (
                         <div className="flex items-center gap-2">
                           <div className={`rounded-full text-xl`}>
@@ -166,9 +166,9 @@ const ComplexTable = (props) => {
                     //     </p>
                     //   );
                     // } 
-                    else if (cell.column.Header === "Status") {
+                    else if (cell.column.Header === "STATUS") {
                       data = <Progress width="w-[108px]" value={cell.value} />;
-                    } else if (cell.column.Header === "Action") {
+                    } else if (cell.column.Header === "ACTION") {
                       data = (
                         <Link
                           to={`/admin/view-details/${cell.row.original._id}`}

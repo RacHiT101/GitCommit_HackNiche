@@ -3,7 +3,7 @@ import DeliveryReviewRatings from "../components/DeliveryReviewRatings";
 const ProductPageDrink = () => {
   return (
     <div className="w-full h-[844px] relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[8px] text-left text-base text-shade-4 font-label-l2">
-      <div className="self-stretch h-[43px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
+      {/* <div className="self-stretch h-[43px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
         <div className="flex flex-col items-center justify-start">
           <img
             className="w-[28.4px] h-[11.1px] relative"
@@ -41,7 +41,7 @@ const ProductPageDrink = () => {
           alt=""
           src="/recording-indicator.svg"
         />
-      </div>
+      </div> */}
       <header className="self-stretch flex flex-row items-start justify-start pt-0 px-5 pb-2 text-left text-xl text-shade-4 font-label-l2">
         <div className="flex-1 flex flex-row items-center justify-between">
           <div className="h-11 w-11 rounded-3xl box-border flex flex-row items-center justify-start py-2.5 pr-[11px] pl-[9px] border-[1px] border-solid border-tint-3">
@@ -73,6 +73,9 @@ const ProductPageDrink = () => {
           src="/rectangle-351@2x.png"
         />
       </section>
+      {/* <div className="bg-[#F0ECE9] rounded-lg">
+        <img src="/rectangle-351@2x.png" className="h-[280px] w-[280px]" />
+      </div> */}
       <div className="relative font-medium hidden">Description</div>
       <DeliveryReviewRatings />
       <section className="self-stretch flex flex-col items-center justify-start min-h-[168px] text-left text-base font-label-l2">

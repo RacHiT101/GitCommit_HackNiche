@@ -5,7 +5,7 @@ const Home = () => {
     <div className="w-full relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-start justify-start gap-[16px]">
       <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-base text-shade-4 font-label-l2">
         <div className="w-[740px] flex flex-col items-start justify-start gap-[9px]">
-          <header className="w-[390px] h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
+          {/* <header className="w-[390px] h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
             <div className="flex flex-col items-center justify-start">
               <img
                 className="w-[28.4px] h-[11.1px] relative"
@@ -43,7 +43,7 @@ const Home = () => {
               alt=""
               src="/recording-indicator.svg"
             />
-          </header>
+          </header> */}
           <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-5">
             <div className="flex-1 flex flex-row items-center justify-start gap-[10px]">
               <div className="flex-1 flex flex-col items-start justify-start gap-[24px] min-w-[234px]">

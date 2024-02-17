@@ -17,17 +17,11 @@ const orderSchema = new mongoose.Schema(
         ref: "User",
       },
     },
-    products: [
-      {
-        productId: {
-          type: String,
-        },
-        quantity: {
-          type: Number,
-          default: 1,
-        },
-      },
-    ],
+    products: {
+      type: Array,
+      required: true,
+      ref: "Cart",
+    },
     amount: {
       type: Number,
       required: true,

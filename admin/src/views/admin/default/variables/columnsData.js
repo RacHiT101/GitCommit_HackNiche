@@ -1,15 +1,15 @@
 export const columnsDataDevelopment = [
   {
     Header: "ORDER NO",
-    accessor: "orderNo",
+    accessor: "_id",
   },
   {
     Header: "NAME",
     accessor: "name",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "STATUS",
+    accessor: "status",
   },
   {
     Header: "ACTION",
@@ -27,8 +27,8 @@ export const columnsDataCheck = [
     accessor: "name",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "STATUS",
+    accessor: "status",
   },
   {
     Header: "ACTION",
@@ -46,15 +46,15 @@ export const columnsDataColumns = [
     accessor: "name",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "STATUS",
+    accessor: "status",
   },
   {
     Header: "ACTION",
     accessor: "action",
   },
 ];
-export const columnsDataComplex=[
+export const columnsDataComplex = [
   {
     Header: "ORDER NO",
     accessor: "orderNo",
@@ -64,8 +64,8 @@ export const columnsDataComplex=[
     accessor: "name",
   },
   {
-    Header: "PROGRESS",
-    accessor: "progress",
+    Header: "STATUS",
+    accessor: "status",
   },
   {
     Header: "ACTION",

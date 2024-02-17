@@ -27,7 +27,7 @@ const ComplexTable = (props) => {
   const getCust = async () => {
     
     try{
-      const res = await axios.get("http://localhost:5001/customer/");
+      const res = await axios.get("http://localhost:5001/order/");
       console.log(res.data);
       
       setCust(res.data);
@@ -37,15 +37,15 @@ const ComplexTable = (props) => {
     }
    
   };
-  const delCust = async (id) => {
-    try {
-      const res = await axios.delete(`http://localhost:5001/customer/${id}`);
-      console.log(res.data);
-      window.location.reload();
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const delCust = async (id) => {
+  //   try {
+  //     const res = await axios.delete(`http://localhost:5001/customer/${id}`);
+  //     console.log(res.data);
+  //     window.location.reload();
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
     const editCust = async (id) => {
       try {
@@ -137,7 +137,14 @@ const ComplexTable = (props) => {
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "NAME") {
+                    } 
+                    else if (cell.column.Header === "NAME") {
+                      data = (
+                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                          {cell.value}
+                        </p>
+                      );
+                    } else if (cell.column.Header === "STATUS") {
                       data = (
                         <div className="flex items-center gap-2">
                           <div className={`rounded-full text-xl`}>
@@ -154,7 +161,7 @@ const ComplexTable = (props) => {
                           </p>
                         </div>
                       );
-                     } 
+                    }
                     // else if (cell.column.Header === "Time") {
                     //   let dateObject = new Date(cell.value);
                     //   let formattedDate =
@@ -165,10 +172,11 @@ const ComplexTable = (props) => {
                     //       {formattedDate}
                     //     </p>
                     //   );
-                    // } 
-                    else if (cell.column.Header === "STATUS") {
-                      data = <Progress width="w-[108px]" value={cell.value} />;
-                    } else if (cell.column.Header === "ACTION") {
+                    // }
+                    // else if (cell.column.Header === "STATUS") {
+                    //   data = <Progress width="w-[108px]" value={cell.value} />;
+                    // }
+                    else if (cell.column.Header === "ACTION") {
                       data = (
                         <Link
                           to={`/admin/view-details/${cell.row.original._id}`}

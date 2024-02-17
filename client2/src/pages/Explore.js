@@ -4,16 +4,10 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 const Explore = () => {
   const [foods, setfoods] = useState(data);
-
-
-
   const { categoryy } = useParams();
   console.log(categoryy);
+
   const filterType = (category) => {
-
-
-
-
     setfoods(
       data.filter((item) => {
         return item.category == category;

@@ -1,13 +1,54 @@
-import Spline from "@splinetool/react-spline";
-import fries from "../assets/fries.svg"
-import { Link } from "react-router-dom";
-export default function FriesComponent() {
+// import React from "react"
+// // import "./styles.css"
+// import { Stack } from "./stack"
+// import styled from "@emotion/styled"
+
+// export default function FriesComponent() {
+//   const Wrapper = styled(Stack)`
+//     background: #1f2937;
+//   `
+
+//   const Item = styled.div`
+//     background: #f9fafb;
+//     width: 200px;
+//     height: 250px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 80px;
+//     text-shadow: 0 10px 10px #d1d5db;
+//     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+//     border-radius: 8px;
+//     transform: ${() => {
+//       let rotation = Math.random() * (5 - -5) + -5
+//       return `rotate(${rotation}deg)`
+//     }};
+//   `
+
+//   return (
+//     <div >
+//       <Wrapper onVote={(item, vote) => console.log(item.props, vote)}>
+//         <Item data-value="waffles" whileTap={{ scale: 1.15 }}>
+//           🧇
+//         </Item>
+//         <Item data-value="pancakes" whileTap={{ scale: 1.15 }}>
+//           🥞
+//         </Item>
+//         <Item data-value="donuts" whileTap={{ scale: 1.15 }}>
+//           🍩
+//         </Item>
+//       </Wrapper>
+//     </div>
+//   )
+// }
+import React from 'react'
+
+const FriesComponent = () => {
   return (
-    <div className="w-full h-full">
-    {/* <Link to="/explore"> */}
-    <Link to={{pathname:"/explore", state: {fromDashboard: true }}}>
-      <img className="w-full h-full" src={fries} alt="Fries" />
-    </Link>
-  </div>
-  );
+    <div>
+      hi
+    </div>
+  )
 }
+
+export default FriesComponent

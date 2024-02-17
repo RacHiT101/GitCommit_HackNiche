@@ -1,148 +1,81 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import CardFrame from "../components/CardFrame";
+import FoodCard from "../components/FoodCard";
+import WifiIcon from "../components/WifiIcon";
+import HomeIndicatorRectangle from "../components/HomeIndicatorRectangle";
+import { Link , useNavigate} from "react-router-dom";
 
-function Payment() {
+function App() {
+  const [book, setBook] = useState({
+    price: 250,
+  });
+  const navigate = useNavigate();
+
+  const initPayment = (data) => {
+    const options = {
+      key: "rzp_test_FoePXosPESQXF7",
+      amount: data.amount,
+      currency: data.currency,
+      description: "Test Transaction",
+      order_id: data.id,
+      handler: async (response) => {
+        try {
+          const verifyUrl = "http://localhost:5001/payment/verify";
+          const { data } = await axios.post(verifyUrl, response);
+          console.log(data);
+           navigate("/delivery-success");
+        } catch (error) {
+          console.log(error);
+        }
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+    const rzp1 = new window.Razorpay(options);
+    rzp1.open();
+  };
+
+  const handlePayment = async () => {
+    try {
+      const orderUrl = "http://localhost:5001/payment/orders";
+      const { data } = await axios.post(orderUrl, { amount: book.price });
+      console.log(data);
+      initPayment(data.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div className="bg-gray-100 flex items-center justify-center h-screen">
-      <div className="max-w-2xl lg:w-full bg-white p-8 border rounded-md shadow-md">
-        <h2 className="text-3xl font-semibold mb-4 text-center">Checkout</h2>
-        <form action="#">
-          <div className="mb-4">
-            <label
-              for="name"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Full Name
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              for="email"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              for="address"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Address
-            </label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              for="city"
-              className="block text-sm font-medium text-gray-600"
-            >
-              City
-            </label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              for="zip"
-              className="block text-sm font-medium text-gray-600"
-            >
-              ZIP Code
-            </label>
-            <input
-              type="text"
-              id="zip"
-              name="zip"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4">
-            <label
-              for="card"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Card Number
-            </label>
-            <input
-              type="text"
-              id="card"
-              name="card"
-              className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-            />
-          </div>
-
-          <div className="mb-4 flex">
-            <div className="w-1/2 mr-2">
-              <label
-                for="expiry"
-                className="block text-sm font-medium text-gray-600"
-              >
-                Expiry Date
-              </label>
-              <input
-                type="text"
-                id="expiry"
-                name="expiry"
-                placeholder="MM/YY"
-                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-              />
-            </div>
-            <div className="w-1/2 ml-2">
-              <label
-                for="cvv"
-                className="block text-sm font-medium text-gray-600"
-              >
-                CVV
-              </label>
-              <input
-                type="text"
-                id="cvv"
-                name="cvv"
-                className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-              />
-            </div>
-          </div>
-          <div className="mt-8">
-            <Link to="/delivery-success">
-            <button
-              type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 w-full"
-            >
-
-              Place Order
-            </button>
-            </Link>
-          </div>
-        </form>
+    <div className="w-full pt-8 h-screen relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[16px]">
+      <CardFrame />
+      <FoodCard />
+      <WifiIcon />
+      {/* <HomeIndicatorRectangle /> */}
+      <div className="self-stretch px-10 flex flex-row items-center justify-between text-shade-1">
+        <div className="h-[22px] relative font-medium inline-block">Total</div>
+        <div className="h-[27px] relative font-medium inline-block text-mid text-tint-10">
+          <span>$</span>
+          <span className="text-xl text-shade-1">{`15.39 `}</span>
+        </div>
       </div>
+      <section className="self-stretch flex flex-col items-center justify-start gap-[4px] text-left text-mid text-white font-label-l2">
+        <Link to="/pay" className="no-underline  text-white decoration-none">
+          <div className="w-[350px] rounded-13xl bg-accent flex flex-row items-center justify-center p-[22px] box-border">
+            <div
+              onClick={handlePayment}
+              className=" tracking-[0.01em] text-lg leading-[20px] font-semibold"
+            >
+              Pay Now
+            </div>
+          </div>
+        </Link>
+      
+      </section>
     </div>
   );
 }
 
-export default Payment;
+export default App;

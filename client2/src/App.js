@@ -75,6 +75,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/fries":
+          title = "";
+          metaDescription = "";
+          break;
     }
 
     if (title) {
@@ -110,6 +114,8 @@ function App() {
       <Route path="/map" element={<MapBoxx />} />
       <Route path="/explore" element={<Explore />} />
       <Route path="/pay" element={<Payment />} />
+      <Route path="/fries" element={<FriesComponent />} />
+
     </Routes>
   );
 }

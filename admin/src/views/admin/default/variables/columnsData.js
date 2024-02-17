@@ -55,7 +55,6 @@ export const columnsDataColumns = [
   },
 ];
 
-export const columnsDataComplex = [
   {
     Header: "ORDER NO",
     accessor: "orderNo",

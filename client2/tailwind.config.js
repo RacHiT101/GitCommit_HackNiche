@@ -1,0 +1,55 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  theme: {
+    extend: {
+      colors: {
+        "tint-1": "#faf7f5",
+        "shade-4": "#1a1817",
+        white: "#fff",
+        accent: "#78c4a4",
+        "tint-3": "#e3dcd5",
+        "tint-7": "#b0a9a2",
+        "shade-1": "#403f3e",
+        "tint-10": "#8a837d",
+        "tint-2": "#f0ece9",
+        "tint-9": "#96908a",
+        "tint-5": "#c9c1b9",
+        primary: "#ebd1b9",
+        "tint-8": "#a39c94",
+        black: "#000",
+        "shade-2": "#333231",
+        gray: "#7c7b7a",
+        "tint-4": "#d6cfc7",
+        mediumaquamarine: "#64b090",
+      },
+      spacing: {},
+      fontFamily: {
+        "label-l2": "Nunito",
+      },
+      borderRadius: {
+        "13xl": "32px",
+        "81xl": "100px",
+        "21xl": "40px",
+        "37xl": "56px",
+        "11xl": "30px",
+        "31xl": "50px",
+        xl: "20px",
+        "6xl": "25px",
+        "61xl": "80px",
+      },
+    },
+    fontSize: {
+      base: "16px",
+      xl: "20px",
+      mid: "17px",
+      "5xl": "24px",
+      sm: "14px",
+      "21xl": "40px",
+      inherit: "inherit",
+    },
+  },
+  corePlugins: {
+    preflight: false,
+  },
+};

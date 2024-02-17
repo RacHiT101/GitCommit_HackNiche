@@ -17,6 +17,7 @@ const orderSchema = new mongoose.Schema(
         ref: "User",
       },
     },
+    
     products: [
       {
         productId: {
@@ -38,7 +39,11 @@ const orderSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      default: "pending",
+      default: "completed",
+    },
+    preorder: {
+      type: Boolean,
+      default: "false",
     },
   },
   { timestamps: true }

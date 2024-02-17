@@ -1,17 +1,19 @@
 import React from "react";
 import { data } from "../Data";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 const Explore = () => {
   const [foods, setfoods] = useState(data);
 
-  const location = useLocation();
 
-  // Extract the foods state from the location object
-  const { filter } = location.state || {};
-  console.log(filter);
 
+  const { categoryy } = useParams();
+  console.log(categoryy);
   const filterType = (category) => {
+
+
+
+
     setfoods(
       data.filter((item) => {
         return item.category == category;

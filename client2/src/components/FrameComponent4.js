@@ -2,7 +2,7 @@ const FrameComponent4 = () => {
   return (
     <section className="self-stretch flex flex-col items-center justify-start gap-[113px]">
       <div className="self-stretch flex flex-col items-center justify-start gap-[9px]">
-        <div className="self-stretch h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
+        {/* <div className="self-stretch h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
           <div className="flex flex-col items-center justify-start">
             <img
               className="w-[28.4px] h-[11.1px] relative"
@@ -37,7 +37,7 @@ const FrameComponent4 = () => {
             alt=""
             src="/recording-indicator.svg"
           />
-        </div>
+        </div> */}
         <div className="self-stretch flex flex-row items-center justify-start py-0 px-5">
           <div className="h-11 w-11 rounded-3xl bg-white flex flex-row items-center justify-start p-2.5 box-border">
             <img

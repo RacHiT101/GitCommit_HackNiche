@@ -12,6 +12,7 @@ const productRoute = require("./routes/product.js");
 const cartRoute = require("./routes/cart.js");
 const orderRoute = require("./routes/order.js");
 const paymentRoute = require("./routes/pay.js");
+const reviewRoute = require("./routes/review.js");
 dotenv.config();
 app.use(express.json());
 app.use(cors());
@@ -37,6 +38,8 @@ app.use("/products", productRoute);
 app.use("/cart", cartRoute);
 app.use("/order", orderRoute);
 app.use("/payment", paymentRoute);
+app.use("/review", reviewRoute);
+
 
 
 

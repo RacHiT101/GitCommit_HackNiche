@@ -98,7 +98,7 @@ const ComplexTable = (props) => {
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
       <div className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Customer List
+          Current Orders
         </div>
       
         <Modall/>
@@ -131,13 +131,13 @@ const ComplexTable = (props) => {
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
                     let data = "";
-                    if (cell.column.Header === "CUSTOMER NAME") {
+                    if (cell.column.Header === "Order No") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "STATUS") {
+                    } else if (cell.column.Header === "Name") {
                       data = (
                         <div className="flex items-center gap-2">
                           <div className={`rounded-full text-xl`}>
@@ -154,19 +154,21 @@ const ComplexTable = (props) => {
                           </p>
                         </div>
                       );
-                    } else if (cell.column.Header === "DATE") {
-                      let dateObject = new Date(cell.value);
-                      let formattedDate =
-                        dateObject.toLocaleDateString("en-US"); // format: MM/DD/YYYY
+                     } 
+                    // else if (cell.column.Header === "Time") {
+                    //   let dateObject = new Date(cell.value);
+                    //   let formattedDate =
+                    //     dateObject.toLocaleDateString("en-US"); // format: MM/DD/YYYY
 
-                      data = (
-                        <p className="text-sm font-bold text-navy-700 dark:text-white">
-                          {formattedDate}
-                        </p>
-                      );
-                    } else if (cell.column.Header === "PROGRESS") {
+                    //   data = (
+                    //     <p className="text-sm font-bold text-navy-700 dark:text-white">
+                    //       {formattedDate}
+                    //     </p>
+                    //   );
+                    // } 
+                    else if (cell.column.Header === "Status") {
                       data = <Progress width="w-[108px]" value={cell.value} />;
-                    } else if (cell.column.Header === "VIEW DETAILS") {
+                    } else if (cell.column.Header === "Action") {
                       data = (
                         <Link
                           to={`/admin/view-details/${cell.row.original._id}`}
@@ -186,16 +188,17 @@ const ComplexTable = (props) => {
                           </Button>
                         </Link>
                       );
-                    } else if (cell.column.Header === " ") {
-                      data = (
-                        <Button>
-                          <MdDelete
-                            onClick={() => delCust(cell.row.original._id)}
-                            size={18}
-                          />
-                        </Button>
-                      );
-                    }
+                    } 
+                    // else if (cell.column.Header === " ") {
+                    //   data = (
+                    //     <Button>
+                    //       <MdDelete
+                    //         onClick={() => delCust(cell.row.original._id)}
+                    //         size={18}
+                    //       />
+                    //     </Button>
+                    //   );
+                    // }
                     return (
                       <td
                         className="pt-[14px] pb-[18px] sm:text-[14px]"

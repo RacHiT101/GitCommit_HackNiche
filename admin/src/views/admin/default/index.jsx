@@ -4,7 +4,13 @@ import TotalSpent from "views/admin/default/components/TotalSpent";
 import PieChartCard from "views/admin/default/components/PieChartCard";
 import { IoMdHome } from "react-icons/io";
 import { IoDocuments } from "react-icons/io5";
-import { MdBarChart, MdDashboard } from "react-icons/md";
+import { MdBarChart, MdDashboard , MdReviews } from "react-icons/md";
+import { FaTruck } from "react-icons/fa";
+import { FaConciergeBell } from "react-icons/fa";
+import { RiTakeawayFill } from "react-icons/ri";
+
+
+
 
 import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
 
@@ -26,44 +32,34 @@ const Dashboard = () => {
 
       <div className="mt-3 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-3 3xl:grid-cols-6">
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Earnings"}
-          subtitle={"₹340.5"}
+          icon={<FaTruck className="h-7 w-7" />}
+          title={"New Orders"}
+          subtitle={"80+"}
         />
         <Widget
           icon={<IoDocuments className="h-6 w-6" />}
-          title={"Spend this month"}
-          subtitle={"₹642.39"}
+          title={"Revenue"}
+          subtitle={"₹20000"}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"Sales"}
-          subtitle={"₹574.34"}
+          icon={<FaConciergeBell className="h-7 w-7" />}
+          title={"Dine In"}
+          subtitle={"50"}
         />
         <Widget
-          icon={<MdDashboard className="h-6 w-6" />}
-          title={"Your Balance"}
-          subtitle={"₹1,000"}
+          icon={<RiTakeawayFill className="h-6 w-6" />}
+          title={"Takeaway"}
+          subtitle={"40"}
         />
         <Widget
-          icon={<MdBarChart className="h-7 w-7" />}
-          title={"New Tasks"}
-          subtitle={"145"}
+          icon={<MdReviews className="h-7 w-7" />}
+          title={"Reviews"}
+          subtitle={"3 new reviews"}
         />
         <Widget
-          icon={<IoMdHome className="h-6 w-6" />}
-          title={"Total Projects"}
-          subtitle={"₹2433"}
-        />
-      </div>
-      {/* Complex Table , Task & Calendar */}
-
-      <div className="mt-10">
-        <ComplexTable
-          columnsData={columnsDataComplex}
-          tableData={tableDataComplex}
-          // total={total}
-          count={count}
+          icon={<FaTruck className="h-6 w-6" />}
+          title={"Total Orders"}
+          subtitle={"400"}
         />
       </div>
 
@@ -74,11 +70,19 @@ const Dashboard = () => {
         <WeeklyRevenue />
       </div>
 
+      {/* Complex Table , Task & Calendar */}
+
+      <div className="mt-10">
+        <ComplexTable
+          columnsData={columnsDataComplex}
+          tableData={tableDataComplex}
+          // total={total}
+          count={count}
+        />
+      </div>
       {/* Tables & Charts */}
 
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-1">
-      
-
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
           <TaskCard />
           <div className="grid grid-cols-1 rounded-[20px]">

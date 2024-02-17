@@ -150,18 +150,18 @@ export const pieChartData = [63, 25, 12];
 
 export const barChartDataWeeklyRevenue = [
   {
-    name: "PROJECT A",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "VEG",
+    data: [4000, 3700, 3300, 3900, 3200, 3500, 3060, 3020, 3800],
     color: "#6AD2Fa",
   },
   {
-    name: "PROJECT B",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "NON-VEG",
+    data: [4000, 3700, 3300, 3900, 3200, 3500, 3600, 3200, 3800],
     color: "#4318FF",
   },
   {
-    name: "PROJECT C",
-    data: [400, 370, 330, 390, 320, 350, 360, 320, 380],
+    name: "JAIN",
+    data: [4000, 3070, 3300, 3900, 3200, 3050, 3060, 3200, 3080],
     color: "#EFF4FB",
   },
 ];
@@ -259,12 +259,12 @@ export const barChartOptionsWeeklyRevenue = {
 export const lineChartDataTotalSpent = [
   {
     name: "Revenue",
-    data: [50, 64, 48, 66, 49, 68],
+    data: [5000, 6400, 4800, 6600, 4900, 6800],
     color: "#4318FF",
   },
   {
     name: "Profit",
-    data: [30, 40, 24, 46, 20, 46],
+    data: [3000, 4000, 2400, 4600, 2000, 4600],
     color: "#6AD2FF",
   },
 ];

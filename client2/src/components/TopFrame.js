@@ -1,7 +1,7 @@
 const TopFrame = () => {
   return (
     <header className="self-stretch flex flex-col items-center justify-start gap-[25px]">
-      <div className="self-stretch h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
+      {/* <div className="self-stretch h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
         <div className="flex flex-col items-center justify-start">
           <img
             className="w-[28.4px] h-[11.1px] relative"
@@ -40,15 +40,15 @@ const TopFrame = () => {
           alt=""
           src="/recording-indicator.svg"
         />
-      </div>
-      <div className="self-stretch flex flex-row items-start justify-start py-0 px-5 gap-[12px]">
+      </div> */}
+      {/* <div className="self-stretch flex flex-row items-start justify-start py-0 px-5 gap-[12px]">
         <div className="h-[3px] flex-1 relative rounded-2xl bg-tint-1" />
         <div className="h-[3px] flex-1 relative rounded-2xl bg-tint-1" />
         <div className="h-[3px] flex-1 relative rounded-2xl bg-mediumaquamarine">
           <div className="absolute top-[0px] left-[0px] rounded-2xl bg-mediumaquamarine w-[106px] h-[3px] hidden" />
           <div className="absolute top-[0px] left-[0px] rounded-2xl bg-tint-1 w-[53px] h-[3px] z-[1]" />
         </div>
-      </div>
+      </div> */}
     </header>
   );
 };

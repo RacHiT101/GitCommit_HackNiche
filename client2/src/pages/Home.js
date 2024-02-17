@@ -1,11 +1,51 @@
+import { Link } from "react-router-dom";
 import TabBarFrame from "../components/TabBarFrame";
 
 const Home = () => {
   return (
     <div className="w-full relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-start justify-start gap-[16px]">
       <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-base text-shade-4 font-label-l2">
-        <div className=" flex flex-col items-start justify-start gap-[9px]">
-          <div className="self-stretch flex flex-row items-start justify-start pt-8 pr-0 pl-5">
+        <div className="w-[740px] flex flex-col items-start justify-start gap-[9px]">
+          {/* <header className="w-[390px] h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
+            <div className="flex flex-col items-center justify-start">
+              <img
+                className="w-[28.4px] h-[11.1px] relative"
+                loading="eager"
+                alt=""
+                src="/941.svg"
+              />
+            </div>
+            <img
+              className="h-[30px] w-[219px] relative object-cover hidden"
+              alt=""
+              src="/notch@2x.png"
+            />
+            <div className="h-[11px] flex flex-row items-end justify-start gap-[5px]">
+              <img
+                className="h-[10.7px] w-[17px] relative"
+                loading="eager"
+                alt=""
+                src="/mobile-signal.svg"
+              />
+              <img
+                className="h-[11px] w-[15.3px] relative min-h-[11px]"
+                loading="eager"
+                alt=""
+                src="/wifi.svg"
+              />
+              <img
+                className="h-[11.3px] w-[24.3px] relative"
+                alt=""
+                src="/battery.svg"
+              />
+            </div>
+            <img
+              className="h-1.5 w-1.5 relative hidden"
+              alt=""
+              src="/recording-indicator.svg"
+            />
+          </header> */}
+          <div className="self-stretch flex flex-row items-start justify-start pt-8 py-0 pr-0 pl-5">
             <div className="flex-1 flex flex-row items-center justify-start gap-[10px]">
               <div className="flex flex-col items-start justify-start gap-[24px] ">
                 <div className="self-stretch flex flex-row items-center justify-between py-0 pr-2.5 pl-0 text-tint-8">
@@ -102,7 +142,7 @@ const Home = () => {
                     </div>
                     <div className="flex-1 flex flex-col items-center justify-start gap-[4px] min-w-[55px] max-w-[56px]">
                       <div className="w-14 h-14 relative rounded-37xl bg-tint-2 overflow-hidden shrink-0">
-                        <div className="absolute h-full w-full top-[0.71%] right-[-0.54%] bottom-[-0.71%] left-[0.54%] rounded-37xl bg-tint-2 hidden" />
+                        <div className="absolute h-full w-full top-[0.71%] right-[-0.54%] bottom-[-0.71%] left-[0.54%] rounded-37xl bg-tint-2 hidden " />
                         <img
                           className="absolute bottom-[-5.1px] left-[calc(50%_-_36px)] w-[71.8px] h-[61.1px] object-contain z-[1]"
                           loading="eager"
@@ -160,9 +200,11 @@ const Home = () => {
                   <div className="text-xl relative font-bold inline-block">
                     Recommended
                   </div>
-                  <div className="text-lg relative text-base font-semibold text-accent inline-block">
-                    View all
-                  </div>
+                  <Link to="/explore">
+                    <div className="text-lg relative text-base font-semibold text-accent inline-block">
+                      View all
+                    </div>
+                  </Link>
                 </div>
               </div>
               <div className="flex-1 flex flex-col items-start justify-start pt-[5px] px-0 pb-0 box-border min-w-[227px] text-5xl text-tint-1">

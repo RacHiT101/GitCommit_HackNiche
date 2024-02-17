@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const CartOrBasket = () => {
   return (
-    <div className="w-full relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[16px]">
+    <div className="w-full pt-8 h-screen relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[16px]">
       <CardFrame />
       <FoodCard />
       <WifiIcon />

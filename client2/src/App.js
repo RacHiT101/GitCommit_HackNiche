@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductPageFood from "./pages/ProductPageFood";
+import Explore from "./pages/Explore";
 import ProductPageDrink from "./pages/ProductPageDrink";
 import CartOrBasket from "./pages/CartOrBasket";
 import TrackDelivery from "./pages/TrackDelivery";
@@ -14,6 +15,7 @@ import TrackDeliveryFullModal from "./pages/TrackDeliveryFullModal";
 import Onboarding from "./pages/Onboarding";
 import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
+import MapBoxx from "./components/maps/MapBoxx";
 
 function App() {
   const action = useNavigationType();
@@ -67,6 +69,10 @@ function App() {
         title = "";
         metaDescription = "";
         break;
+      case "/explore":
+        title = "";
+        metaDescription = "";
+        break;
     }
 
     if (title) {
@@ -97,6 +103,8 @@ function App() {
       <Route path="/" element={<Onboarding />} />
       <Route path="/delivery-success" element={<DeliverySuccess />} />
       <Route path="/order-delivered" element={<OrderDelivered />} />
+      <Route path="/map" element={<MapBoxx />} />
+      <Route path="/explore" element={<Explore />} />
     </Routes>
   );
 }

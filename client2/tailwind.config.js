@@ -25,7 +25,7 @@ module.exports = {
       },
       spacing: {},
       fontFamily: {
-        "label-l2": "Nunito",
+        "label-l2": "Poppins",
       },
       borderRadius: {
         "13xl": "32px",

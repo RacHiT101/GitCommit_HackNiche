@@ -1,10 +1,9 @@
 import TopFrame from "../components/TopFrame";
 import MainHeading from "../components/MainHeading";
-import Spline from '@splinetool/react-spline';
 
 const Onboarding = () => {
   return (
-    <div className="w-full relative  bg-accent overflow-hidden flex flex-col items-start justify-start gap-[391px]">
+    <div className="w-full relative h-screen bg-accent overflow-hidden flex flex-col items-start justify-start gap-[391px]">
       <TopFrame />
       <MainHeading />
       <section className="w-[401px] h-[376px] absolute my-0 mx-[!important] top-[118px] left-[-35px]">
@@ -32,12 +31,11 @@ const Onboarding = () => {
           alt=""
           src="/frame-14@2x.png"
         />
-        {/* <img
-          className="absolute top-[33px] left-[0px] w-[379.1px] h-[327.2px] object-contain z-[2]"
+        <img
+          className="absolute mx-auto ml-16 left-[0px] h-80 object-contain z-[2]"
           alt=""
           src="/burgerpngpngimagesyellowimages12-2@2x.png"
-        /> */}
-        <Spline scene="https://prod.spline.design/7qUU9WYe53aAZIvs/scene.splinecode" />
+        />
         <img
           className="absolute top-[294.9px] left-[353.9px] w-[47.2px] h-[35.6px] object-contain z-[3]"
           loading="eager"

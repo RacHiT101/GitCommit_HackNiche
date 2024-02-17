@@ -20,6 +20,7 @@ import tableDataCheck from "./variables/tableDataCheck.json";
 import tableDataComplex from "./variables/tableDataComplex.json";
 import MostOrdered from "./components/MostOrdered";
 import OutOfStock from "./components/OutOfStock";
+import PreOrder from "./components/PreOrderTable";
 
 const Dashboard = () => {
   const count = JSON.parse(localStorage.getItem("countData"));
@@ -88,7 +89,8 @@ const Dashboard = () => {
 
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-1">
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
-          <TaskCard />
+          {/* <TaskCard /> */}
+          <PreOrder columnsData={columnsDataComplex} />
           <div className="grid grid-cols-1 rounded-[20px]">
             {/* <MiniCalendar /> */}
             <OutOfStock/>

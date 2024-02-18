@@ -93,7 +93,7 @@ const MapBoxx = () => {
   const GeolocateControlRef = React.useRef();
 
   React.useEffect(() => {
-    // getRoute();
+     getRoute();
   }, []);
 
   return (

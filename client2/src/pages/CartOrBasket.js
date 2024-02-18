@@ -35,7 +35,7 @@ const CartOrBasket = () => {
        ),
        status:"Preparing",
        amount: totalCost,
-       preorder:true,
+       preorder:false,
      };
 
      // Make the POST request to the order API

@@ -135,7 +135,6 @@ const TabBarFrame = () => {
             <div id="google_translate_element" />
           </div>
         </div>
-      
       </div>
     </section>
   );

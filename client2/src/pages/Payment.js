@@ -23,7 +23,7 @@ function App() {
       handler: async (response) => {
         try {
           const verifyUrl =
-            "https://backend-truck.onrender.com/products/payment/verify";
+            "https://backend-truck.onrender.com/payment/verify";
           const { data } = await axios.post(verifyUrl, response);
           console.log(data);
            navigate("/delivery-success");
@@ -42,7 +42,7 @@ function App() {
   const handlePayment = async () => {
     try {
       const orderUrl =
-        "https://backend-truck.onrender.com/products/payment/orders";
+        "https://backend-truck.onrender.com/payment/orders";
       const { data } = await axios.post(orderUrl, {
         amount: order[order?.length - 1].amount,
       });
@@ -58,7 +58,7 @@ useEffect(() => {
   const fetchOrder = async () => {
     try {
       const response = await axios.get(
-        "https://backend-truck.onrender.com/products/order"
+        "https://backend-truck.onrender.com/order"
       ); // Replace with the actual GET order API endpoint
       setOrder(response.data);
     } catch (error) {

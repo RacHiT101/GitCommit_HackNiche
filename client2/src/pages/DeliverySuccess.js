@@ -2,9 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import QRCode from "react-qr-code";
+import Confetti from "react-confetti";
+
+
 
 const DeliverySuccess = () => {
 const [order, setOrder] = useState(null);
+  const [confetti, setConfetti] = useState(false);
+
 
 useEffect(() => {
   const fetchOrder = async () => {
@@ -19,12 +24,13 @@ useEffect(() => {
   };
 
   fetchOrder();
+      setConfetti(true);
+      setTimeout(() => setConfetti(false), 5000);
 }, []);
   return (
     <div className="w-full h-screen relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[117px]">
-      <section className="self-stretch flex flex-col items-center justify-start gap-[9px]"></section>
-      <section className="self-stretch flex flex-col items-center justify-start gap-[9px]"></section>
-      <section className="self-stretch flex flex-row items-start justify-start pt-0 px-5 pb-[61px] text-center text-5xl text-shade-4 font-label-l2">
+      {confetti && <Confetti />}
+      <section className="self-stretch flex flex-row items-start justify-start pt-8 px-5 pb-[61px] text-center text-5xl text-shade-4 font-label-l2">
         <div className="flex-1 flex flex-col items-center justify-start gap-[24px]">
           <div className="w-40 h-40 rounded-61xl bg-tint-2 flex flex-row items-center justify-center">
             <img
@@ -47,6 +53,11 @@ useEffect(() => {
                   </span>
                 )}
                 <span> has been successfully processed</span>
+              </div>
+              <div className="self-stretch h-14 relative text-base tracking-[0.01em] leading-[28px] inline-block text-tint-7">
+                <span>
+                  You have been awarded 20 royalty points for your order!
+                </span>
               </div>
             </div>
             <div className="self-stretch flex flex-col items-center justify-start gap-[24px] text-left text-mid text-white">

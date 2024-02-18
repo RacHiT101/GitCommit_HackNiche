@@ -149,25 +149,23 @@ const PreOrder = (props) => {
                           {cell.value}
                         </p>
                       );
-                    } else if (cell.column.Header === "STATUS") {
+                    } else if (cell.column.Header === "DATE") {
                       data = (
-                        <div className="flex items-center gap-2">
-                          <div className={`rounded-full text-xl`}>
-                            {cell.value === "completed" ? (
-                            <div className="text-sm flex justify-center items-center font-bold text-navy-700 dark:text-white">  <MdCheckCircle className="text-green-500" /> Paid </div>
-                            ) : cell.value === "pending" ? (
-                              <div className="text-sm flex justify-center items-center font-bold text-navy-700 dark:text-white"> <MdCancel className="text-red-500" /> Pending </div>
-                            ) : cell.value === "ongoing" ? (
-                              <div className="text-sm flex justify-center items-center font-bold text-navy-700 dark:text-white"> <MdOutlineError className="text-orange-500" /> Pending </div>
-                            ) : null}
-                          </div>
-                          <p className="text-sm font-bold text-navy-700 dark:text-white">
-                            {/* {cell.value} */}
-                          </p>
-                        </div>
+                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                          {new Date(
+                            cell.row.original.createdAt
+                          ).toLocaleDateString()}{" "}
+                        </p>
                       );
-                    }
-                    else if (cell.column.Header === "View Order") {
+                    } else if (cell.column.Header === "TIME") {
+                      data = (
+                        <p className="text-sm font-bold text-navy-700 dark:text-white">
+                          {new Date(
+                            cell.row.original.createdAt
+                          ).toLocaleTimeString()}{" "}
+                        </p>
+                      );
+                    } else if (cell.column.Header === "View Order") {
                       data = (
                         <Link
                           to={`/admin/view-details/${cell.row.original._id}`}
@@ -185,11 +183,11 @@ const PreOrder = (props) => {
                             fontSize={"small"}
                             padding="4px"
                           >
-                           View Order
+                            View Order
                           </Button>
                         </Link>
                       );
-                    } 
+                    }
                     // else if (cell.column.Header === "Time") {
                     //   let dateObject = new Date(cell.value);
                     //   let formattedDate =
@@ -221,9 +219,8 @@ const PreOrder = (props) => {
                             }}
                             fontSize={"small"}
                             padding="4px"
-                            
                           >
-                           Mark as Preparing
+                            Mark as Preparing
                           </Button>
                         </Link>
                       );

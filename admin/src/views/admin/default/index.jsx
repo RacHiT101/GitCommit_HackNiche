@@ -9,7 +9,7 @@ import { FaTruck } from "react-icons/fa";
 import { FaConciergeBell } from "react-icons/fa";
 import { RiTakeawayFill } from "react-icons/ri";
 
-import { columnsDataCheck, columnsDataComplex } from "./variables/columnsData";
+import { columnsData, columnsDataComplex } from "./variables/columnsData";
 
 import Widget from "components/widget/Widget";
 import CheckTable from "views/admin/default/components/CheckTable";
@@ -90,7 +90,7 @@ const Dashboard = () => {
       <div className="mt-5 grid grid-cols-1 gap-5 xl:grid-cols-1">
         <div className="grid grid-cols-1 gap-5 rounded-[20px] md:grid-cols-2">
           {/* <TaskCard /> */}
-          <PreOrder columnsData={columnsDataComplex} />
+          <PreOrder columnsData={columnsData} />
           <div className="grid grid-cols-1 rounded-[20px]">
             {/* <MiniCalendar /> */}
             <OutOfStock/>

@@ -124,7 +124,7 @@ const Budget = () => {
           </div>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-4 3xl:grid-cols-4">
+      <div className="grid grid-cols-3 gap-x-0 gap-y-6 mt-6">
         <button onClick={() => handleTaskCardClick("Fruits")}>
           <TaskCard
             icon={<GiFloorPolisher className="h-7 w-7" />}

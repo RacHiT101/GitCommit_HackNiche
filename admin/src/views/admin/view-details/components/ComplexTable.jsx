@@ -85,9 +85,7 @@ const ComplexTable = (props) => {
   return (
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
       <div className="relative flex items-center justify-between pt-4">
-        <div className="text-xl font-bold text-navy-700 dark:text-white">
-          Progress Report of Rachit
-        </div>
+      ORDER DETAILS
       
         <Modall id={id} />
       </div>
@@ -145,7 +143,7 @@ const ComplexTable = (props) => {
                     } else if (cell.column.Header === "TIME") {
                       let dateObject = new Date(createdTime);
                       let formattedDate =
-                        dateObject.toLocaleDateString("en-US"); // format: MM/DD/YYYY
+                        dateObject.toLocaleTimeString("en-US"); // format: MM/DD/YYYY
 
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">

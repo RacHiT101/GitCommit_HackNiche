@@ -37,15 +37,17 @@ const ComplexTable = (props) => {
     }
    
   };
-  // const delCust = async (id) => {
-  //   try {
-  //     const res = await axios.delete(`http://localhost:5001/customer/${id}`);
-  //     console.log(res.data);
-  //     window.location.reload();
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
+ const updateOrderStatus = async (id) => {
+   try {
+     const res = await axios.put(`http://localhost:5001/order/${id}`, {
+       status: "Completed",
+     });
+     console.log(res.data);
+     getCust(); // Refresh the orders
+   } catch (err) {
+     console.log(err);
+   }
+ };
 
     const editCust = async (id) => {
       try {
@@ -173,24 +175,10 @@ const ComplexTable = (props) => {
                       data = (
                         <div className="flex items-center gap-2">
                           <div className={`rounded-full text-xl`}>
-                            {cell.value === "completed" ? (
-                              <div className="flex items-center justify-center text-sm font-bold text-navy-700 dark:text-white">
-                                {" "}
-                                <MdCheckCircle className="text-green-500" />{" "}
-                                Paid{" "}
-                              </div>
-                            ) : cell.value === "pending" ? (
-                              <div className="flex items-center justify-center text-sm font-bold text-navy-700 dark:text-white">
-                                {" "}
-                                <MdCancel className="text-red-500" /> Pending{" "}
-                              </div>
-                            ) : cell.value === "ongoing" ? (
-                              <div className="flex items-center justify-center text-sm font-bold text-navy-700 dark:text-white">
-                                {" "}
-                                <MdOutlineError className="text-orange-500" />{" "}
-                                Pending{" "}
-                              </div>
-                            ) : null}
+                            <p className="text-sm font-bold text-navy-700 dark:text-white">
+                              {cell.value}
+                            </p>
+                           
                           </div>
                           <p className="text-sm font-bold text-navy-700 dark:text-white">
                             {/* {cell.value} */}
@@ -229,8 +217,11 @@ const ComplexTable = (props) => {
                             }}
                             fontSize={"small"}
                             padding="4px"
+                            onClick={() =>
+                              updateOrderStatus(cell.row.original._id)
+                            }
                           >
-                            Mark as Preparing
+                            Mark as Completed
                           </Button>
                         </Link>
                       );

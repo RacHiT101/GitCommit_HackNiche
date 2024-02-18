@@ -17,64 +17,50 @@ const OutOfStock = () => {
           Food Item
         </p>
         <p className="text-lg font-bold  text-navy-700 dark:text-white">
-          Availability
+          Availability Near You
         </p>
       </div>
-      <div className="flex items-center justify-between rounded-2xl bg-white p-3 px-16 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none my-1">
+      <div className="my-1 flex items-center justify-between rounded-2xl bg-white p-3 px-16 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
         <p className="flex text-base font-medium text-navy-700 dark:text-white">
           <div className="flex">
             <img
               className="h-8 w-8 rounded-full bg-gray-400"
-              src={image1}
+              src="https://th.bing.com/th/id/OIP.Mz82ujI76UPhwtXmP91JCgHaHa?w=195&h=195&c=7&r=0&o=5&dpr=2&pid=1.7"
               alt=""
             />
           </div>
           <div className="ml-4">
             <p className="text-base font-medium text-navy-700 dark:text-white">
-              Arabian Ice Cream
+              Onion
             </p>
           </div>
         </p>
         <p className="text-base font-medium text-navy-700 dark:text-white">
-          Tomorrow
+          View
         </p>
       </div>
-      <div className="flex items-center justify-between rounded-2xl bg-white p-3 px-16 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none my-1">
+      <div className="my-1 flex items-center justify-between rounded-2xl bg-white p-3 px-16 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none">
         <p className="flex text-base font-medium text-navy-700 dark:text-white">
           <div className="flex">
             <img
               className="h-8 w-8 rounded-full bg-gray-400"
-              src={image1}
+              src="https://th.bing.com/th/id/OIP.8kTIKzvDOPvwh64HkdwynAHaHa?w=202&h=202&c=7&r=0&o=5&dpr=2&pid=1.7"
               alt=""
             />
           </div>
           <div className="ml-4">
             <p className="text-base font-medium text-navy-700 dark:text-white">
-              Arabian Ice Cream
+              Capsium
             </p>
           </div>
         </p>
         <p className="text-base font-medium text-navy-700 dark:text-white">
-          Tomorrow
-        </p>
-      </div>
-      <div className="flex items-center justify-between rounded-2xl bg-white p-3 px-16 shadow-3xl shadow-shadow-500 dark:!bg-navy-700 dark:shadow-none my-1">
-        <p className="flex text-base font-medium text-navy-700 dark:text-white">
-          <div className="flex">
-            <img
-              className="h-8 w-8 rounded-full bg-gray-400"
-              src={image1}
-              alt=""
-            />
-          </div>
-          <div className="ml-4">
-            <p className="text-base font-medium text-navy-700 dark:text-white">
-              Arabian Ice Cream
-            </p>
-          </div>
-        </p>
-        <p className="text-base font-medium text-navy-700 dark:text-white">
-          Tomorrow
+          <a
+            href="https://blinkit.com/prn/red-capsicum/prid/440980"
+            className="blink"
+          >
+            View
+          </a>
         </p>
       </div>
     </Card>

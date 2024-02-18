@@ -89,6 +89,7 @@ const TabBarFrame = () => {
               alt=""
               src="/profilecircle.svg"
             />
+            <div id="google_translate_element"></div>
           </div>
         </div>
         {/* <footer className="w-[410px] h-[34px] relative">

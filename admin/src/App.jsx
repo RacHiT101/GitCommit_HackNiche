@@ -5,6 +5,7 @@ import RtlLayout from "layouts/rtl";
 import AdminLayout from "layouts/admin";
 import AuthLayout from "layouts/auth";
 import SignupPage from "views/auth/SIgnup";
+import Map from "views/map/Map";
 const App = () => {
   return (
     <Routes>
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="auth/sign-up" element={<SignupPage />} />
       <Route path="admin/*" element={<AdminLayout />} />
       <Route path="rtl/*" element={<RtlLayout />} />
+      <Route path="/map" element={<Map />} />
       <Route path="/" element={<Navigate to="/admin" replace />} />
     </Routes>
   );

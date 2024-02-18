@@ -259,12 +259,12 @@ export const barChartOptionsWeeklyRevenue = {
 export const lineChartDataTotalSpent = [
   {
     name: "Revenue",
-    data: [5000, 6400, 4800, 6600, 4900, 6800],
+    data: [5000, 6400, 4800, 6600, 4900, 6800, 6500,4000],
     color: "#4318FF"
   },
   {
     name: "Profit",
-    data: [3000, 4000, 2400, 4600, 2000, 4600],
+    data: [3000, 4000, 2400, 4600, 2000, 4600,5800,6000],
     color: "#6AD2FF",
   },
 ];
@@ -322,7 +322,7 @@ export const lineChartOptionsTotalSpent = {
     },
     type: "text",
     range: undefined,
-    categories: ["SEP", "OCT", "NOV", "DEC", "JAN", "FEB"],
+    categories: ["12.00pm","1.00pm","2.00pm","3.00pm","4.00pm","5.00pm","6.00pm","7.00pm"],
   },
 
   yaxis: {

@@ -112,3 +112,6 @@ const swiped = (direction, nameToDelete) => {
 }
 
 export default FriesComponent;
+
+
+

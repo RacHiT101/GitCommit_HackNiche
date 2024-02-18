@@ -1,4 +1,5 @@
 import * as React from "react";
+
 import Map, {
   Marker,
   NavigationControl,
@@ -9,7 +10,6 @@ import Map, {
 import "mapbox-gl/dist/mapbox-gl.css";
 // import Truck from "../images/th.jpg";
 import Instructions from "./Instructions";
-import TrackDeliveryFullModal from "../../pages/TrackDeliveryFullModal";
 
 const MapBoxx = () => {
   const [viewState, setViewState] = React.useState({
@@ -26,7 +26,7 @@ const MapBoxx = () => {
 
   const getRoute = async () => {
     const response = await fetch(
-      `https://api.mapbox.com/directions/v5/mapbox/cycling/${start[0]},${start[1]};${end[0]},${end[1]}?steps=true&geometries=geojson&access_token=pk.eyJ1IjoicHJpeWFua2FhMjUwMyIsImEiOiJjbHNwamhtZDYwcXBmMm1rNWtyaGtubjRvIn0.FBiEVIjZkWXy5IA937O-xQ`,
+      `https://api.mapbox.com/directions/v5/mapbox/driving/72.837242%2C19.107559%3B72.837242%2C19.10222%3B72.827242%2C19.10222%3B72.836242%2C19.10222?alternatives=true&geometries=geojson&language=en&overview=full&steps=true&access_token=pk.eyJ1IjoicHJpeWFua2FhMjUwMyIsImEiOiJjbHNwajk3dDQwbzBjMnNscmdzdThlbGV6In0.7yanv2AdJUThBGn9ICZaUQ0`,
       { method: "GET" }
     );
 
@@ -92,7 +92,7 @@ const MapBoxx = () => {
   const GeolocateControlRef = React.useRef();
 
   React.useEffect(() => {
-    getRoute();
+     getRoute();
   }, []);
 
   return (
@@ -129,7 +129,9 @@ const MapBoxx = () => {
           );
         })}
       </div>
-     <TrackDeliveryFullModal step={steps}/>
+      {/* <div>
+        <TrackDeliveryFullModal step={steps}/>
+      </div> */}
     </div>
   );
 };

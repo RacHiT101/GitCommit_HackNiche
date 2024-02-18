@@ -25,7 +25,7 @@ const Navbar = (props) => {
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
       <div className="ml-[6px]">
         <div className="h-6 w-[224px] pt-1">
-          <a
+          {/* <a
             className="text-sm font-normal text-navy-700 hover:underline dark:text-white dark:hover:text-white"
             href=" "
           >
@@ -34,12 +34,24 @@ const Navbar = (props) => {
               {" "}
               /{" "}
             </span>
-          </a>
+          </a> */}
           <Link
             className="text-sm font-normal capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
-            to="#"
+            to="/admin/default"
           >
-            {brandText}
+            Dashboard
+          </Link>
+          <Link
+            className="text-sm font-normal ml-8 capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
+            to="/admin/budget-tracking"
+          >
+            Inventory
+          </Link>
+          <Link
+            className="text-sm font-normal ml-8 capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
+            to="/map"
+          >
+            Map
           </Link>
         </div>
         <p className="shrink text-[33px] capitalize text-navy-700 dark:text-white">

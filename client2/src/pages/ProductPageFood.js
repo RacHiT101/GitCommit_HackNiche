@@ -19,7 +19,7 @@ const ProductPageFood = () => {
   const addReview = async () => {
     try {
       const response = await axios.post(
-        "https://backend-truck.onrender.com/products/review/",
+        "https://backend-truck.onrender.com/review/",
         {
           productId: "65d07d5035cd19e6d6e5a4e1",
           review: form,
@@ -38,7 +38,7 @@ const ProductPageFood = () => {
   const getReview = async () => {
     try {
       const response = await axios.get(
-        `https://backend-truck.onrender.com/products/review/${productId}`
+        `https://backend-truck.onrender.com/review/${productId}`
       );
 
       console.log("Review fetched successfully:", response.data);

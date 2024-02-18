@@ -54,7 +54,7 @@ const BarGraph = ({taskExpenses}) => {
     },
     yaxis: {
       title: {
-        text: "₹ (thousands)",
+        // text: "₹ (thousands)",
       },
     },
     colors: ["#868CFF", "#432CF3"],
@@ -62,7 +62,7 @@ const BarGraph = ({taskExpenses}) => {
     tooltip: {
       y: {
         formatter: function (val) {
-          return "₹ " + val + " thousands";
+          // return "₹ " + val + " thousands";
         },
       },
     },

@@ -6,10 +6,7 @@ import {
   useSortBy,
   useTable,
 } from "react-table";
-import {
-  Button,
-  
-} from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 import { MdDelete } from "react-icons/md";
 import { MdCheckCircle, MdCancel, MdOutlineError } from "react-icons/md";
 import { useMemo, useState } from "react";
@@ -21,24 +18,23 @@ import { GrAdd } from "react-icons/gr";
 import { Modall } from "./Modal";
 const PreOrder = (props) => {
   const { columnsData } = props;
-  const [name,setName] = useState("");
-  const [cust,setCust] = useState([]);
+  const [name, setName] = useState("");
+  const [cust, setCust] = useState([]);
 
   const getCust = async () => {
-    
-    try{
+    try {
       const res = await axios.get("http://localhost:5001/order/");
 
-      const filteredOrders = res.data.filter(order => order.preorder !== false);
+      const filteredOrders = res.data.filter(
+        (order) => order.preorder !== false
+      );
 
       console.log(res.data);
-      
+
       setCust(filteredOrders);
-    }
-    catch(err){
+    } catch (err) {
       console.log(err);
     }
-   
   };
   // const delCust = async (id) => {
   //   try {
@@ -50,30 +46,29 @@ const PreOrder = (props) => {
   //   }
   // };
 
-    const editCust = async (id) => {
-      try {
-        const res = await axios.put(`http://localhost:5001/customer/${id}`,
+  const editCust = async (id) => {
+    try {
+      const res = await axios.put(
+        `http://localhost:5001/customer/${id}`
         // {
         //   progress : count.count/count.total*100
         // }
-        );
-        console.log(res.data);
-        window.location.reload();
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
+      );
+      console.log(res.data);
+      window.location.reload();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     getCust();
     // console.log(count)
   }, []);
-// useEffect(() => {
-//   editCust(count.id);
- 
-// }, [])
+  // useEffect(() => {
+  //   editCust(count.id);
 
+  // }, [])
 
   const columns = useMemo(() => columnsData, [columnsData]);
   const data = useMemo(() => cust, [cust]);
@@ -102,10 +97,10 @@ const PreOrder = (props) => {
     <Card extra={"w-full h-full px-6 pb-6 sm:overflow-x-auto"}>
       <div className="relative flex items-center justify-between pt-4">
         <div className="text-xl font-bold text-navy-700 dark:text-white">
-          PreOrder 
+          PreOrder
         </div>
-      
-        <Modall/>
+
+        <Modall />
       </div>
 
       <div className="mt-8 overflow-x-scroll ">
@@ -133,17 +128,15 @@ const PreOrder = (props) => {
               return (
                 <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell, index) => {
-                  console.log(cell);
+                    console.log(cell);
                     let data = "";
                     if (cell.column.Header === "ORDER NO") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
-                          
                         </p>
                       );
-                    } 
-                    else if (cell.column.Header === "NAME") {
+                    } else if (cell.column.Header === "NAME") {
                       data = (
                         <p className="text-sm font-bold text-navy-700 dark:text-white">
                           {cell.value}
@@ -166,6 +159,7 @@ const PreOrder = (props) => {
                         </p>
                       );
                     } else if (cell.column.Header === "View Order") {
+                    } else if (cell.column.Header === "View Order") {
                       data = (
                         <Link
                           to={`/admin/view-details/${cell.row.original._id}`}
@@ -174,20 +168,22 @@ const PreOrder = (props) => {
                           <Button
                             fontFamily={"heading"}
                             w={"70%"}
-                            bgGradient="linear(to-r, red.400,red.700)"
-                            color={"white"}
+                            bgGradient="blue.400"
+                            color={"black"}
                             _hover={{
-                              bgGradient: "linear(to-r, red.400,red.700)",
+                              bgGradient: "blue.400",
                               boxShadow: "xl",
                             }}
                             fontSize={"small"}
                             padding="4px"
                           >
                             View Order
+                            View Order
                           </Button>
                         </Link>
                       );
                     }
+                    
                     // else if (cell.column.Header === "Time") {
                     //   let dateObject = new Date(cell.value);
                     //   let formattedDate =

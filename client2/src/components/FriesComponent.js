@@ -16,13 +16,15 @@
 //        setfilter(food);
 //      };
 
-//      const getProduct = async () => {
-//        try {
-//          const res = await axios.get("http://localhost:5001/products/");
-//          const modifiedProducts = res.data.map((product) => ({
-//            ...product,
-//            ParentCategory: product.categories[1], // Add the second category as a new field
-//          }));
+     const getProduct = async () => {
+       try {
+         const res = await axios.get(
+           "https://backend-truck.onrender.com/products/"
+         );
+         const modifiedProducts = res.data.map((product) => ({
+           ...product,
+           ParentCategory: product.categories[1], // Add the second category as a new field
+         }));
 
 //          const uniqueSecondCategories = [
 //            ...new Set(

@@ -22,7 +22,8 @@ function App() {
       order_id: data.id,
       handler: async (response) => {
         try {
-          const verifyUrl = "http://localhost:5001/payment/verify";
+          const verifyUrl =
+            "https://backend-truck.onrender.com/products/payment/verify";
           const { data } = await axios.post(verifyUrl, response);
           console.log(data);
            navigate("/delivery-success");
@@ -40,7 +41,8 @@ function App() {
 
   const handlePayment = async () => {
     try {
-      const orderUrl = "http://localhost:5001/payment/orders";
+      const orderUrl =
+        "https://backend-truck.onrender.com/products/payment/orders";
       const { data } = await axios.post(orderUrl, {
         amount: order[order?.length - 1].amount,
       });
@@ -55,7 +57,9 @@ const [order, setOrder] = useState(null);
 useEffect(() => {
   const fetchOrder = async () => {
     try {
-      const response = await axios.get("http://localhost:5001/orde0r"); // Replace with the actual GET order API endpoint
+      const response = await axios.get(
+        "https://backend-truck.onrender.com/products/order"
+      ); // Replace with the actual GET order API endpoint
       setOrder(response.data);
     } catch (error) {
       console.error(error);

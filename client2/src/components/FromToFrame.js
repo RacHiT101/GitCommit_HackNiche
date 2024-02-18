@@ -7,7 +7,9 @@ const FromToFrame = ({step}) => {
   useEffect(() => {
     const fetchOrder = async () => {
       try {
-        const response = await axios.get("http://localhost:5001/order"); // Replace with the actual GET order API endpoint
+        const response = await axios.get(
+          "https://backend-truck.onrender.com/order"
+        ); // Replace with the actual GET order API endpoint
         setOrder(response.data);
       } catch (error) {
         console.error(error);

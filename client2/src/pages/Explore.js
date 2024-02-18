@@ -14,7 +14,9 @@ const [quantity, setQuantity] = useState(1);
 
   const getProduct = async () => {
     try {
-      const res = await axios.get("http://localhost:5001/products/");
+      const res = await axios.get(
+        "https://backend-truck.onrender.com/products/"
+      );
       const modifiedProducts = res.data.map((product) => ({
         ...product,
         ParentCategory: product.categories[1], // Add the second category as a new field
@@ -62,23 +64,29 @@ const [quantity, setQuantity] = useState(1);
 
 const addToCart = async (productId, title, quantity,image,price) => {
   try {
-    const response = await axios.post("http://localhost:5001/cart", {
-      userId: "65d042e8ce62ca59ab4f1b13", // replace with actual user ID
-      products: [
-        {
-          productId: productId,
-          title: title,
-          quantity: quantity,
-          image:image,
-          price:price
-        },
-      ],
-    });
+    const response = await axios.post(
+      "https://backend-truck.onrender.com/products/cart",
+      {
+        userId: "65d042e8ce62ca59ab4f1b13", // replace with actual user ID
+        products: [
+          {
+            productId: productId,
+            title: title,
+            quantity: quantity,
+            image: image,
+            price: price,
+          },
+        ],
+      }
+    );
 
     console.log(response.data);
   } catch (error) {
     console.error(error);
   }
+};
+const removeFilters = () => {
+  setFilteredItems(products);
 };
   return (
     <>
@@ -120,7 +128,10 @@ const addToCart = async (productId, title, quantity,image,price) => {
                 src="/rectangle-28@2x.png"
               />
             </div>
-            <div className="h-[22px] relative font-medium inline-block">
+            <div
+              onClick={removeFilters}
+              className="h-[22px] relative font-medium inline-block"
+            >
               All
             </div>
           </div>
@@ -161,21 +172,7 @@ const addToCart = async (productId, title, quantity,image,price) => {
               />
             </div>
             <div className="h-[22px] relative font-medium inline-block">
-              Drinks
-            </div>
-          </div>
-          <div className="flex-1 flex flex-col items-center justify-start gap-[4px] min-w-[55px] max-w-[56px]">
-            <div className="w-14 h-14 relative rounded-37xl bg-tint-2 overflow-hidden shrink-0">
-              <div className="absolute h-full w-full top-[0.71%] right-[-0.54%] bottom-[-0.71%] left-[0.54%] rounded-37xl bg-tint-2 hidden" />
-              <img
-                className="absolute top-[calc(50%_-_29.9px)] left-[calc(50%_-_29px)] w-[57px] h-[61.1px] object-cover z-[1]"
-                loading="eager"
-                alt=""
-                src="/rectangle-38@2x.png"
-              />
-            </div>
-            <div className="h-[22px] relative font-medium inline-block">
-              Fruits
+              Coffee
             </div>
           </div>
         </div>
@@ -212,11 +209,13 @@ const addToCart = async (productId, title, quantity,image,price) => {
             key={index}
             className="border shadow-lg hover:scale-105 rounded-lg"
           >
-            <img
-              className="w-full  h-[300px] object-fit rounded-t-lg"
-              src={item.image}
-              alt={item.title}
-            />
+            <Link to="/product-page-food">
+              <img
+                className="w-full  h-[300px] object-fit rounded-t-lg"
+                src={item.image}
+                alt={item.title}
+              />
+            </Link>
             <div className="flex justify-between px-2 py-3">
               <p className="font-bold font-sans text-xl">{item.title}</p>
               <p>
@@ -224,6 +223,9 @@ const addToCart = async (productId, title, quantity,image,price) => {
                   {item.price}
                 </span>
               </p>
+            </div>
+            <div className="font-semibold text-base px-2">
+              <p>Categories: {item.categories.join(", ")}</p>
             </div>
             <div className="flex">
               <button

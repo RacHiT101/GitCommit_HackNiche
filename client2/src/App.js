@@ -38,14 +38,8 @@ function App() {
     // Initialize Alan AI with your project key
     const alan = alanBtn({
       key: "655f88c1605de19ff1e46d6c5e9493b02e956eca572e1d8b807a3e2338fdd0dc/stage",
-      onCommand: (commandData) => {
-        if (commandData.command === "navigation") {
-          console.log("Navigating to:", commandData.route); // Add this line
-          history.push(commandData.route);
-        }
-      },
+   
     });
-
     // Clean up the Alan SDK when the component unmounts
     return () => {
       alan.deactivate();

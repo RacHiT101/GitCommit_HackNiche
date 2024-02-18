@@ -16,8 +16,5 @@ export const columnsDataComplex = [
     Header: "View Order",
     accessor: "viewOrder",
   },
-  {
-    Header: "ACTION",
-    accessor: "action",
-  },
+ 
 ];

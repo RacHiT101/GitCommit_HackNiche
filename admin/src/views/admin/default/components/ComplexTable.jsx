@@ -156,10 +156,10 @@ const ComplexTable = (props) => {
                           <Button
                             fontFamily={"heading"}
                             w={"70%"}
-                            bgGradient="linear(to-r, red.400,red.700)"
-                            color={"white"}
+                            bgGradient="blue.400"
+                            color={"black"}
                             _hover={{
-                              bgGradient: "linear(to-r, red.400,red.700)",
+                              bgGradient: "blue.400",
                               boxShadow: "xl",
                             }}
                             fontSize={"small"}
@@ -221,10 +221,10 @@ const ComplexTable = (props) => {
                           <Button
                             fontFamily={"heading"}
                             w={"70%"}
-                            bgGradient="linear(to-r, red.400,red.700)"
-                            color={"white"}
+                            bgGradient="blue.400"
+                            color={"black"}
                             _hover={{
-                              bgGradient: "linear(to-r, red.400,red.700)",
+                              bgGradient: "blue.400",
                               boxShadow: "xl",
                             }}
                             fontSize={"small"}

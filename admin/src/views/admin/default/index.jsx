@@ -33,33 +33,33 @@ const Dashboard = () => {
         <Widget
           icon={<FaTruck className="h-7 w-7" />}
           title={"New Orders"}
-          subtitle={"80+"}
+          subtitle={"3"}
         />
         <Widget
           icon={<IoDocuments className="h-6 w-6" />}
           title={"Revenue"}
           subtitle={"₹20000"}
         />
-        <Widget
+        {/* <Widget
           icon={<FaConciergeBell className="h-7 w-7" />}
           title={"Dine In"}
           subtitle={"50"}
-        />
-        <Widget
+        /> */}
+        {/* <Widget
           icon={<RiTakeawayFill className="h-6 w-6" />}
           title={"Takeaway"}
           subtitle={"40"}
-        />
+        /> */}
         <Widget
           icon={<MdReviews className="h-7 w-7" />}
           title={"Reviews"}
           subtitle={"3 new reviews"}
         />
-        <Widget
+        {/* <Widget
           icon={<FaTruck className="h-6 w-6" />}
           title={"Total Orders"}
           subtitle={"400"}
-        />
+        /> */}
       </div>
 
       {/* Charts */}

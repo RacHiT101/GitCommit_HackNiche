@@ -18,7 +18,7 @@ import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
 import MapBoxx from "./components/maps/MapBoxx";
 import Payment from "./pages/Payment";
-import alanBtn from "@alan-ai/alan-sdk-web";import alanBtn from "@alan-ai/alan-sdk-web";
+import alanBtn from "@alan-ai/alan-sdk-web";
 import axios from "axios";
 
 function App() {

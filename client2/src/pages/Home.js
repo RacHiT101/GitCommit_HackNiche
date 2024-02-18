@@ -10,7 +10,6 @@ const Home = () => {
     <div className="w-full relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-start justify-start gap-[16px]">
       <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-base text-shade-4 font-label-l2">
         <div className="w-[740px] flex flex-col items-start justify-start gap-[9px]">
-       
           <div className="self-stretch flex flex-row items-start justify-start pt-8 py-0 pr-0 pl-5">
             <div className="flex-1 flex flex-row items-center justify-start gap-[10px]">
               <div className="flex flex-col items-start justify-start gap-[24px] ">
@@ -93,7 +92,7 @@ const Home = () => {
                   </div>
                 </div>
                 <div className="instructions">
-                  Swipe the cards to explore more options
+                  Swipe right on the cards to explore more options
                 </div>
                 <FriesComponent />
                 <div className="self-stretch flex flex-row items-center justify-between py-0 pr-2.5 pl-0 text-xl">

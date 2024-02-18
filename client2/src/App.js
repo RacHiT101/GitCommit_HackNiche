@@ -37,9 +37,8 @@ function App() {
       key: "655f88c1605de19ff1e46d6c5e9493b02e956eca572e1d8b807a3e2338fdd0dc/stage",
       onCommand: (commandData) => {
         if (commandData.command === "navigation") {
-          console.log(commandData.route);
-          // Use your router's API to navigate to the route
-          navigate(commandData.route);
+          console.log("Navigating to:", commandData.route); // Add this line
+          history.push(commandData.route);
         }
       },
     });

@@ -86,27 +86,25 @@ const swiped = (direction, nameToDelete) => {
 
  
   return (
-    <div>
-      <div
-        className="cardContainer"
-      >
-        {products.map((character) => (
-          <TinderCard
-            className="swipe"
-            key={character._id}
-            onSwipe={(dir) => swiped(dir, character.title)}
-            onCardLeftScreen={() => outOfFrame(character.title)}
-            onClick={() => navigate(`/items/${character.ParentCategory}`)}
-          >
-            <Link to={`/items/${character.ParentCategory}`}>
-              <div
-                style={{ backgroundImage: "url(" + character.image + ")" }}
-                className="card"
-              ></div>
-            </Link>
-          </TinderCard>
-        ))}
-      </div>
+    <div className="cardContainer">
+      {products.map((character) => (
+        <TinderCard
+          className="swipe"
+          key={character._id}
+          onSwipe={(dir) => {
+            if (dir === "right") {
+              navigate(`/items/${character.ParentCategory}`);
+            }
+            swiped(dir, character.title);
+          }}
+          onCardLeftScreen={() => outOfFrame(character.title)}
+        >
+          <div
+            style={{ backgroundImage: "url(" + character.image + ")" }}
+            className="card"
+          ></div>
+        </TinderCard>
+      ))}
     </div>
   );
 }

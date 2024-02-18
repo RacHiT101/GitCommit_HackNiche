@@ -40,7 +40,10 @@ const CartOrBasket = () => {
 
      // Make the POST request to the order API
      try {
-       const response = await axios.post("http://localhost:5001/order", order);
+       const response = await axios.post(
+         "https://backend-truck.onrender.com/order",
+         order
+       );
        console.log(response.data);
        navigate("/pay");
      } catch (error) {
@@ -52,7 +55,7 @@ useEffect(() => {
   const getCarts = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:5001/cart/find/65d042e8ce62ca59ab4f1b13"
+        "https://backend-truck.onrender.com/cart/find/65d042e8ce62ca59ab4f1b13"
       );
       setCarts(response.data);
     } catch (error) {

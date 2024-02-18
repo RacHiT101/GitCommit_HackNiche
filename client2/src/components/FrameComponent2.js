@@ -6,7 +6,7 @@ const FrameComponent2 = ({ cheeseBurgers, prop }) => {
           {cheeseBurgers}
         </h3>
         <div className="h-[33px] relative inline-block text-mid text-tint-10">
-          <span className="font-medium">$</span>
+          <span className="font-medium">₹</span>
           <span className="text-5xl font-semibold text-accent">{prop}</span>
         </div>
       </div>

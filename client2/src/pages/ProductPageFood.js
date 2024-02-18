@@ -18,11 +18,14 @@ const ProductPageFood = () => {
 
   const addReview = async () => {
     try {
-      const response = await axios.post("http://localhost:5001/review/", {
-        productId: "65d07d5035cd19e6d6e5a4e1",
-        review: form,
-        rating,
-      });
+      const response = await axios.post(
+        "https://backend-truck.onrender.com/products/review/",
+        {
+          productId: "65d07d5035cd19e6d6e5a4e1",
+          review: form,
+          rating,
+        }
+      );
 
       console.log("Review added successfully:", response.data);
       setform("");
@@ -35,7 +38,7 @@ const ProductPageFood = () => {
   const getReview = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:5001/review/${productId}`
+        `https://backend-truck.onrender.com/products/review/${productId}`
       );
 
       console.log("Review fetched successfully:", response.data);

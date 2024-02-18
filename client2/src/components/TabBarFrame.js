@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const TabBarFrame = () => {
   return (
-    <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-xl text-shade-1 font-label-l2">
+    <section className="self-stretch py-4 flex flex-row items-start justify-start py-0 px-0 text-left text-xl text-shade-1 font-label-l2">
       <div className="w-[672px] flex flex-col items-start justify-start gap-[3px]">
         <div className="self-stretch flex flex-row items-start justify-start py-0 pr-0 pl-5">
           <div className="flex-1 flex flex-row items-start justify-start gap-[16px]">
@@ -22,7 +22,7 @@ const TabBarFrame = () => {
                   </div>
                   <div className="self-stretch flex flex-row items-center justify-between text-mid text-tint-10">
                     <div className="h-[27px] relative font-medium inline-block">
-                      <span>$</span>
+                      <span>₹</span>
                       <span className="text-xl text-shade-1">8.09</span>
                     </div>
                     <div className="flex flex-row items-center justify-start gap-[4px] text-base text-tint-7">
@@ -64,7 +64,7 @@ const TabBarFrame = () => {
                   </div>
                   <div className="self-stretch flex-1 flex flex-row items-center justify-between text-mid text-tint-10">
                     <div className="self-stretch relative font-medium">
-                      <span>$</span>
+                      <span>₹</span>
                       <span className="text-xl text-shade-1">8.50</span>
                     </div>
                     <div className="h-[22px] flex flex-row items-center justify-start gap-[4px] text-base text-tint-7">
@@ -135,9 +135,7 @@ const TabBarFrame = () => {
             <div id="google_translate_element" />
           </div>
         </div>
-        <footer className="w-[410px] h-[34px] relative">
-          <div className="absolute top-[calc(50%_-_2px)] left-[calc(50%_-_70px)] rounded-81xl bg-shade-4 w-[120px] h-1" />
-        </footer>
+      
       </div>
     </section>
   );

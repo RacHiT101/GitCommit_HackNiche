@@ -45,7 +45,7 @@ const MenuItem = () => {
           <Flex alignItems="center" justifyContent="space-between">
             <Flex alignItems="center" gap="4px">
               <Text fontSize="lg" color="tint.10" fontWeight="medium">
-                $
+                ₹
               </Text>
               <Text fontSize="xl" color="shade.1" fontWeight="medium">
                 8.09

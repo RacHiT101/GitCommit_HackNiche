@@ -17,10 +17,10 @@ const WifiIcon = () => {
             </div>
             <div className="self-stretch flex flex-row items-baseline justify-between text-mid text-tint-10">
               <div className="h-[27px] relative font-medium inline-block">
-                <span>$</span>
+                <span>₹</span>
                 <span className="text-xl text-shade-1">{`7.30 `}</span>
               </div>
-              <div className="relative text-sm font-medium">$3.65 per unit</div>
+              <div className="relative text-sm font-medium">₹3.65 per unit</div>
             </div>
           </div>
           <div className="w-[120px] my-0 mx-[!important] absolute top-[85px] right-[3px] rounded-11xl box-border flex flex-row items-center justify-between py-3 px-4 text-black border-[1px] border-solid border-tint-3">

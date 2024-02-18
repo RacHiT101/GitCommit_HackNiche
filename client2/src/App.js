@@ -4,6 +4,7 @@ import {
   Route,
   useNavigationType,
   useLocation,
+  useNavigate,
 } from "react-router-dom";
 import Home from "./pages/Home";
 import ProductPageFood from "./pages/ProductPageFood";
@@ -17,13 +18,14 @@ import DeliverySuccess from "./pages/DeliverySuccess";
 import OrderDelivered from "./pages/OrderDelivered";
 import MapBoxx from "./components/maps/MapBoxx";
 import Payment from "./pages/Payment";
-import alanBtn from "@alan-ai/alan-sdk-web";
+import alanBtn from "@alan-ai/alan-sdk-web";import alanBtn from "@alan-ai/alan-sdk-web";
 import axios from "axios";
 
 function App() {
   const action = useNavigationType();
   const location = useLocation();
   const pathname = location.pathname;
+  const navigate = useNavigate();
   const [translatedText, setTranslatedText] = useState("");
 
   useEffect(() => {
@@ -31,7 +33,24 @@ function App() {
       window.scrollTo(0, 0);
     }
   }, [action, pathname]);
+  
+  useEffect(() => {
+    // Initialize Alan AI with your project key
+    const alan = alanBtn({
+      key: "655f88c1605de19ff1e46d6c5e9493b02e956eca572e1d8b807a3e2338fdd0dc/stage",
+      onCommand: (commandData) => {
+        if (commandData.command === "navigation") {
+          console.log("Navigating to:", commandData.route); // Add this line
+          history.push(commandData.route);
+        }
+      },
+    });
 
+    // Clean up the Alan SDK when the component unmounts
+    return () => {
+      alan.deactivate();
+    };
+  }, []);
   useEffect(() => {
     let title = "";
     let metaDescription = "";
@@ -136,28 +155,26 @@ function App() {
   }, []);
 
   return (
-    <>
-      <Routes>
-        <Route path="/home" element={<Home />} />
-        <Route path="/product-page-food" element={<ProductPageFood />} />
-        <Route path="/product-page-drink" element={<ProductPageDrink />} />
-        <Route path="/cart-or-basket" element={<CartOrBasket />} />
-        <Route path="/track-delivery" element={<TrackDelivery />} />
-        <Route path="/items/:categoryy" element={<Explore />} />
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/product-page-food" element={<ProductPageFood />} />
+      <Route path="/product-page-drink" element={<ProductPageDrink />} />
+      <Route path="/cart" element={<CartOrBasket />} />
+      <Route path="/track-delivery" element={<TrackDelivery />} />
+      <Route path="/items/:categoryy" element={<Explore />} />
 
-        <Route
-          path="/track-delivery-full-modal"
-          element={<TrackDeliveryFullModal />}
-        />
-        <Route path="/" element={<Onboarding />} />
-        <Route path="/delivery-success" element={<DeliverySuccess />} />
-        <Route path="/order-delivered" element={<OrderDelivered />} />
-        <Route path="/map" element={<MapBoxx />} />
-        <Route path="/explore" element={<Explore />} />
-        <Route path="/pay" element={<Payment />} />
-        {/* <Route path="/fries" element={<FriesComponent />} /> */}
-      </Routes>
-    </>
+      <Route
+        path="/track-delivery-full-modal"
+        element={<TrackDeliveryFullModal />}
+      />
+      <Route path="/" element={<Onboarding />} />
+      <Route path="/delivery-success" element={<DeliverySuccess />} />
+      <Route path="/order-delivered" element={<OrderDelivered />} />
+      <Route path="/map" element={<MapBoxx />} />
+      <Route path="/explore" element={<Explore />} />
+      <Route path="/pay" element={<Payment />} />
+      {/* <Route path="/fries" element={<FriesComponent />} /> */}
+    </Routes>
   );
 }
 export default App;

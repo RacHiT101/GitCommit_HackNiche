@@ -1,9 +1,26 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import QRCode from "react-qr-code";
 
 const DeliverySuccess = () => {
+const [order, setOrder] = useState(null);
+
+useEffect(() => {
+  const fetchOrder = async () => {
+    try {
+      const response = await axios.get("http://localhost:5001/order"); // Replace with the actual GET order API endpoint
+      setOrder(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  fetchOrder();
+}, []);
   return (
     <div className="w-full h-screen relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-center justify-start gap-[117px]">
+      <section className="self-stretch flex flex-col items-center justify-start gap-[9px]"></section>
       <section className="self-stretch flex flex-col items-center justify-start gap-[9px]"></section>
       <section className="self-stretch flex flex-row items-start justify-start pt-0 px-5 pb-[61px] text-center text-5xl text-shade-4 font-label-l2">
         <div className="flex-1 flex flex-col items-center justify-start gap-[24px]">
@@ -22,7 +39,11 @@ const DeliverySuccess = () => {
               </h3>
               <div className="self-stretch h-14 relative text-base tracking-[0.01em] leading-[28px] inline-block text-tint-7">
                 <span>{`Your order `}</span>
-                <span className="font-medium text-shade-4">#33-A45E</span>
+                {order && order.length > 0 && (
+                  <span className="font-medium text-shade-4">
+                    {order[order?.length - 1].orderId}
+                  </span>
+                )}
                 <span> has been successfully processed</span>
               </div>
             </div>
@@ -33,7 +54,7 @@ const DeliverySuccess = () => {
               >
                 <div className="w-full rounded-13xl bg-accent flex flex-row items-center justify-center py-[22px] px-[9px]">
                   <div className="relative tracking-[0.01em] leading-[20px] font-semibold">
-                    View ETA
+                    Track Your Food Truck
                   </div>
                 </div>
               </Link>

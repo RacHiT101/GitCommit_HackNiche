@@ -1,50 +1,15 @@
 import { Link } from "react-router-dom";
 import TabBarFrame from "../components/TabBarFrame";
+import FriesComponent from "../components/FriesComponent";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Home = () => {
+
   return (
     <div className="w-full relative rounded-13xl bg-tint-1 overflow-hidden flex flex-col items-start justify-start gap-[16px]">
       <section className="self-stretch flex flex-row items-start justify-start py-0 px-0 text-left text-base text-shade-4 font-label-l2">
         <div className="w-[740px] flex flex-col items-start justify-start gap-[9px]">
-          {/* <header className="w-[390px] h-[43.3px] overflow-hidden shrink-0 flex flex-row items-start justify-between pt-4 px-5 pb-[15px] box-border">
-            <div className="flex flex-col items-center justify-start">
-              <img
-                className="w-[28.4px] h-[11.1px] relative"
-                loading="eager"
-                alt=""
-                src="/941.svg"
-              />
-            </div>
-            <img
-              className="h-[30px] w-[219px] relative object-cover hidden"
-              alt=""
-              src="/notch@2x.png"
-            />
-            <div className="h-[11px] flex flex-row items-end justify-start gap-[5px]">
-              <img
-                className="h-[10.7px] w-[17px] relative"
-                loading="eager"
-                alt=""
-                src="/mobile-signal.svg"
-              />
-              <img
-                className="h-[11px] w-[15.3px] relative min-h-[11px]"
-                loading="eager"
-                alt=""
-                src="/wifi.svg"
-              />
-              <img
-                className="h-[11.3px] w-[24.3px] relative"
-                alt=""
-                src="/battery.svg"
-              />
-            </div>
-            <img
-              className="h-1.5 w-1.5 relative hidden"
-              alt=""
-              src="/recording-indicator.svg"
-            />
-          </header> */}
           <div className="self-stretch flex flex-row items-start justify-start pt-8 py-0 pr-0 pl-5">
             <div className="flex-1 flex flex-row items-center justify-start gap-[10px]">
               <div className="flex flex-col items-start justify-start gap-[24px] ">
@@ -71,7 +36,7 @@ const Home = () => {
                     </div>
                     <div className="flex flex-row items-center justify-center py-0 px-2 gap-[4px] text-shade-4">
                       <div className="relative tracking-[0.01em]">
-                       Juhu, Vile Parle
+                        Juhu, Vile Parle
                       </div>
                       <img
                         className="h-4 w-4 relative"
@@ -112,7 +77,7 @@ const Home = () => {
                     />
                   </div>
                 </div>
-                <div className="flex flex-col items-start justify-start pt-0 px-0 pb-4 gap-[16px] text-tint-7">
+                <div className="flex flex-col w-full pt-0 mx-auto  pb-4 gap-[16px] text-tint-7">
                   <div className=" rounded-3xl box-border flex flex-row items-end justify-start py-3 px-4 gap-[12px] border-[0.5px] border-solid border-tint-5">
                     <img
                       className="h-6 w-6 relative min-h-[20px]"
@@ -122,10 +87,14 @@ const Home = () => {
                     <input
                       type="text"
                       placeholder="What are you looking for?"
-                      class="h-full w-full rounded-full bg-transparent text-sm font-medium text-navy-700 outline-none  "
+                      className="h-full w-[80%] rounded-full bg-transparent text-sm font-medium text-navy-700 outline-none  "
                     />
                   </div>
                 </div>
+                <div className="instructions">
+                  Swipe right on the cards to explore more options
+                </div>
+                <FriesComponent />
                 <div className="self-stretch flex flex-row items-center justify-between py-0 pr-2.5 pl-0 text-xl">
                   <div className="text-xl relative font-bold inline-block">
                     Recommended

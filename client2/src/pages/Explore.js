@@ -4,16 +4,14 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
-
 const Explore = () => {
   const [foods, setfoods] = useState(data);
   const [products, setProducts] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-
+const [quantity, setQuantity] = useState(1);
   const { categoryy } = useParams();
   console.log(categoryy);
 
-  
   const getProduct = async () => {
     try {
       const res = await axios.get("http://localhost:5001/products/");
@@ -28,28 +26,31 @@ const Explore = () => {
       console.log(err);
     }
   };
-
+  const filterType = (type) => {
+    // Filter items based on category
+    const filtered = products.filter(
+      (product) => product.categories[2] === type
+    );
+    setFilteredItems(filtered);
+  };
 
   useEffect(() => {
     getProduct();
     // console.log(count)
   }, []);
   console.log(products);
-
   useEffect(() => {
-    // Filter items based on categories[1]
-    const filtered = products.filter(product => product.categories[1] === categoryy);
-    setFilteredItems(filtered);
-  }, [products]);
-  console.log(filteredItems);
-
-  const filterType = (category) => {
-    setfoods(
-      data.filter((item) => {
-        return item.category == category;
-      })
-    );
-  };
+    if (categoryy) {
+      // Filter items based on categories[1]
+      const filtered = products.filter(
+        (product) => product.categories[1] === categoryy
+      );
+      setFilteredItems(filtered);
+    } else {
+      // If no filter is selected, display all products
+      setFilteredItems(products);
+    }
+  }, [products, categoryy]);
 
   const filterPrice = (price) => {
     setfoods(
@@ -58,6 +59,27 @@ const Explore = () => {
       })
     );
   };
+
+const addToCart = async (productId, title, quantity,image,price) => {
+  try {
+    const response = await axios.post("http://localhost:5001/cart", {
+      userId: "65d042e8ce62ca59ab4f1b13", // replace with actual user ID
+      products: [
+        {
+          productId: productId,
+          title: title,
+          quantity: quantity,
+          image:image,
+          price:price
+        },
+      ],
+    });
+
+    console.log(response.data);
+  } catch (error) {
+    console.error(error);
+  }
+};
   return (
     <>
       <header className="self-stretch flex flex-row items-start justify-start pt-0 px-5 pb-2 text-left text-xl text-shade-4 font-label-l2 mt-5">
@@ -160,60 +182,25 @@ const Explore = () => {
 
         <div className="flex flex-col lg:flex-row justify-between mx-5">
           <div>
-            <p className="font-bold text-slate-600 ">Filter Type</p>
+            <p className="font-bold ">Filter Type</p>
             <div className="flex justify-between flex-wrap ">
               <button
-                onClick={() => setfoods(data)}
-                className="border-2 py-1 font-bold px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white "
-              >
-                All
-              </button>
-              <button
-                onClick={() => filterType("pizza")}
-                className="border-2 py-1 font-bold px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white "
+                onClick={() => filterType("Veg")}
+                className="py-2 text-lg  px-4 rounded-2xl bg-accent text-white"
               >
                 VEG
               </button>
               <button
-                onClick={() => filterType("fries")}
-                className="border-2 py-1 font-bold px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white "
+                onClick={() => filterType("Non Veg")}
+                className="py-2 text-lg  px-4 rounded-2xl bg-accent text-white"
               >
                 NON-VEG
               </button>
               <button
-                onClick={() => filterType("pasta")}
-                className="border-2 py-1 font-bold px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white "
+                onClick={() => filterType("Jain")}
+                className="py-2 text-lg  px-4 rounded-2xl bg-accent text-white"
               >
                 JAIN
-              </button>
-            </div>
-          </div>
-          <div>
-            <p className="font-bold text-slate-600">Filter Price</p>
-            <div className="flex justify-between max-w-[390px] w-full ">
-              <button
-                onClick={() => setfoods(data)}
-                className="border-2 px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white m-1"
-              >
-                All
-              </button>
-              <button
-                onClick={() => filterPrice("under 100")}
-                className="border-2 px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white m-1"
-              >
-                Under 100
-              </button>
-              <button
-                onClick={() => filterPrice("under 150")}
-                className="border-2 px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white m-1"
-              >
-                Under 150
-              </button>
-              <button
-                onClick={() => filterPrice("under 200")}
-                className="border-2 px-4 rounded-2xl border-accent text-accent hover:bg-accent hover:text-white m-1"
-              >
-                Under 200
               </button>
             </div>
           </div>
@@ -226,17 +213,49 @@ const Explore = () => {
             className="border shadow-lg hover:scale-105 rounded-lg"
           >
             <img
-              className="w-full h-[200px] object-cover rounded-t-lg"
+              className="w-full  h-[300px] object-fit rounded-t-lg"
               src={item.image}
               alt={item.title}
             />
             <div className="flex justify-between px-2 py-3">
               <p className="font-bold font-sans text-xl">{item.title}</p>
               <p>
-                <span className="bg-orange-500 p-1 text-white rounded-full">
+                <span className="bg-accent px-4 py-2 text-white rounded-full">
                   {item.price}
                 </span>
               </p>
+            </div>
+            <div className="flex">
+              <button
+                onClick={() => {
+                  addToCart(
+                    item._id,
+                    item.title,
+                    quantity,
+                    item.image,
+                    item.price
+                  );
+                  setQuantity(1);
+                }}
+                className="bg-accent text-white px-4 py-2 rounded-lg m-4"
+              >
+                Add to Cart
+              </button>
+              <div className="p-2 flex gap-2 justify-center items-center">
+                <button
+                  className="text-xl"
+                  onClick={() => setQuantity(quantity > 1 ? quantity - 1 : 1)}
+                >
+                  -
+                </button>
+                <span className="text-xl ">{quantity}</span>
+                <button
+                  className="text-xl"
+                  onClick={() => setQuantity(quantity + 1)}
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
         ))}

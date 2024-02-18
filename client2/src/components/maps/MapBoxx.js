@@ -10,6 +10,7 @@ import Map, {
 import "mapbox-gl/dist/mapbox-gl.css";
 // import Truck from "../images/th.jpg";
 import Instructions from "./Instructions";
+import TrackDeliveryFullModal from "../../pages/TrackDeliveryFullModal";
 
 const MapBoxx = () => {
   const [viewState, setViewState] = React.useState({
@@ -128,6 +129,9 @@ const MapBoxx = () => {
             </div>
           );
         })}
+      </div>
+      <div>
+        <TrackDeliveryFullModal step={steps}/>
       </div>
     </div>
   );

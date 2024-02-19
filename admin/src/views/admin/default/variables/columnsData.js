@@ -16,7 +16,10 @@ export const columnsDataComplex = [
     Header: "View Order",
     accessor: "viewOrder",
   },
- 
+  {
+    Header: "ACTION",
+    accessor: "D",
+  },
 ];
 
 export const columnsData = [
@@ -36,10 +39,10 @@ export const columnsData = [
     Header: "TIME",
     accessor: "c",
   },
-  {
-    Header: "View Order",
-    accessor: "viewOrder",
-  },
+  // {
+  //   Header: "View Order",
+  //   accessor: "viewOrder",
+  // },
   // {
   //   Header: "ACTION",
   //   accessor: "action",

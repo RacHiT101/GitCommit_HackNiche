@@ -208,18 +208,21 @@ const ComplexTable = (props) => {
                         >
                           <Button
                             fontFamily={"heading"}
-                            w={"70%"}
+                            w={"80%"}
+                           
                             bgGradient="blue.400"
                             color={"black"}
                             _hover={{
                               bgGradient: "blue.400",
                               boxShadow: "xl",
                             }}
-                            fontSize={"small"}
-                            padding="4px"
+                            
+                            fontSize={"xs"}
+                            padding="10px"
                             onClick={() =>
                               updateOrderStatus(cell.row.original._id)
                             }
+                            disabled={cell.row.original.status === "completed"}
                           >
                             Mark as Completed
                           </Button>

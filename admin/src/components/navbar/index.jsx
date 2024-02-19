@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "components/dropdown";
 import { FiAlignJustify } from "react-icons/fi";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,20 +11,44 @@ import {
   IoMdInformationCircleOutline,
 } from "react-icons/io";
 import avatar from "assets/img/avatars/avatar4.png";
+import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
 
 const Navbar = (props) => {
   const { onOpenSidenav, brandText } = props;
   const [darkmode, setDarkmode] = React.useState(false);
+  const [orders, setOrders] = useState([]);
+  const [prevOrders, setPrevOrders] = useState([]);
+  const [notifications, setNotifications] = useState([]);
   const navigate = useNavigate();
   function Logout(){
     localStorage.removeItem("token");
     navigate("/auth/sign-in")
   }
+useEffect(() => {
+  const fetchOrder = async () => {
+    try {
+      const response = await axios.get(
+        "https://backend-truck.onrender.com/order"
+      );
+      if (response.data.length > prevOrders.length) {
+        const newOrder = response.data[response.data.length - 1];
+        setNotifications([newOrder]);
+      }
+      setPrevOrders(orders);
+      setOrders(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
+  fetchOrder();
+}, [orders, prevOrders]);
   return (
     <nav className="sticky top-4 z-40 flex flex-row flex-wrap items-center justify-between rounded-xl bg-white/10 p-2 backdrop-blur-xl dark:bg-[#0b14374d]">
       <div className="ml-[6px]">
         <div className="h-6 w-[224px] pt-1">
+          <ToastContainer />
           {/* <a
             className="text-sm font-normal text-navy-700 hover:underline dark:text-white dark:hover:text-white"
             href=" "
@@ -42,13 +66,13 @@ const Navbar = (props) => {
             Dashboard
           </Link>
           <Link
-            className="text-sm font-normal ml-8 capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
+            className="ml-8 text-sm font-normal capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
             to="/admin/budget-tracking"
           >
             Inventory
           </Link>
           <Link
-            className="text-sm font-normal ml-8 capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
+            className="ml-8 text-sm font-normal capitalize text-navy-700 hover:underline dark:text-white dark:hover:text-white"
             to="/map"
           >
             Map
@@ -100,38 +124,23 @@ const Navbar = (props) => {
                 </p>
               </div>
 
-              <button className="flex w-full items-center">
-                <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
-                  <BsArrowBarUp />
-                </div>
-                <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                  <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                    New Update: Horizon UI Dashboard PRO
-                  </p>
-                  <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                    A new update for your downloaded item is available!
-                  </p>
-                </div>
-              </button>
-
-              <button className="flex w-full items-center">
-                <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
-                  <BsArrowBarUp />
-                </div>
-                <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
-                  <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
-                    New Update: Horizon UI Dashboard PRO
-                  </p>
-                  <p className="font-base text-left text-xs text-gray-900 dark:text-white">
-                    A new update for your downloaded item is available!
-                  </p>
-                </div>
-              </button>
+              {notifications.map((notification, index) => (
+                <button key={index} className="flex w-full items-center">
+                  <div className="flex h-full w-[85px] items-center justify-center rounded-xl bg-gradient-to-b from-brandLinear to-brand-500 py-4 text-2xl text-white">
+                    <BsArrowBarUp />
+                  </div>
+                  <div className="ml-2 flex h-full w-full flex-col justify-center rounded-lg px-1 text-sm">
+                    <p className="mb-1 text-left text-base font-bold text-gray-900 dark:text-white">
+                      New order Received: {notification.orderId} 
+                    </p>
+                  </div>
+                </button>
+              ))}
             </div>
           }
           classNames={"py-2 top-4 -left-[230px] md:-left-[440px] w-max"}
         />
-        
+
         <div
           className="cursor-pointer text-gray-600"
           onClick={() => {
@@ -187,7 +196,10 @@ const Navbar = (props) => {
                   href=" "
                   onClick={Logout}
                   className="mt-3 text-sm font-medium text-red-500 transition duration-150 ease-out hover:text-red-500 hover:ease-in"
-                > Log Out</a>
+                >
+                  {" "}
+                  Log Out
+                </a>
               </div>
             </div>
           }
